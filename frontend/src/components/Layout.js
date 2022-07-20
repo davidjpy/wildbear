@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 import Nav from './Nav';
 
-export const Layout = () => {
+const Layout = () => {
     return (
         <div>
             <Nav />
@@ -11,3 +11,4 @@ export const Layout = () => {
     );
 }
 
+export default Layout;
