@@ -1,8 +1,6 @@
 const HomePage = () => {
     return (
-        <p>
-            Hello World
-        </p>
+        <p>HomePage</p>
     );
 }
 
