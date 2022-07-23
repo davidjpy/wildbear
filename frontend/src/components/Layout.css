@@ -5,7 +5,7 @@
 .bar {
     display: flex;
     justify-content: flex-end;
-    background-color: #253469;
+    background-color: black;
     padding: 0.5rem;
 }
 
@@ -23,7 +23,7 @@
 .nav__tab {
     height: 100%;
     width: 16.67%;
-    color: rgb(37,52,105);
+    color: black
 }
 
 .nav__tab:hover {

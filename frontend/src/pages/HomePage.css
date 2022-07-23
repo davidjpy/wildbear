@@ -1,25 +1,54 @@
 .slider {
-    width: 100%;
     margin: auto;
+    background-color: black;
     overflow: hidden;
 }
 
 .canvas {
-    width: 60%;
+    width: 40%;
     margin: auto;
 }
 
 .slides {
+    position: relative;
     display: flex;
     transition: 0.6s ease-in-out;
 }
 
 .slides__slide {
     width: 100%;
-    filter: blur(4px) brightness(30%);
-    transition: 0.6s filter ease-in-out;
+    filter: blur(6px) brightness(30%);
+    transition: all 0.6s ease-in-out;
 }
 
 .slides__slide--active {
     filter: none;
+}
+
+.slides__slide--prev {
+    transition: all 0.6s ease-in-out;
+    cursor: pointer;
+}
+
+.slides__slide--prev:hover {
+    filter: blur(3px) brightness(60%);
+}
+
+.slides__slide--next {
+    transition: all 0.6s ease-in-out;
+    cursor: pointer;
+}
+
+.slides__slide--next:hover {
+    filter: blur(3px) brightness(60%);
+}
+
+.slides__slide:first-child {
+    /* cursor: not-allowed; */
+    filter: blur(6px) brightness(30%);
+}
+
+.slides__slide:last-child {
+    cursor: not-allowed;
+    filter: blur(6px) brightness(30%);
 }
