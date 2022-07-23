@@ -17,13 +17,12 @@
 .nav {
     position: sticky;
     display: flex;
-    justify-content: center;
     box-shadow: 0 5px 5px rgba(43, 43, 43, 0.4);
 }
 
 .nav__tab {
     height: 100%;
-    width: 20%;
+    width: 16.67%;
     color: rgb(37,52,105);
 }
 
@@ -38,7 +37,7 @@ a:-webkit-any-link {
     height: 100%;
     width: 100%;
     text-align: center;
-    padding: 1rem;
+    padding: 0.6rem;
     color: inherit;
     text-decoration: none;
 }
