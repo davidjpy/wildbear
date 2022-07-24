@@ -5,8 +5,24 @@
 }
 
 .canvas {
+    position: relative;
     width: 40%;
     margin: auto;
+}
+
+.canvas__checkboxs {
+    position: absolute;
+    top: 94%;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.canvas__checkbox {
+    margin: 0px 1px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
 }
 
 .slides {
@@ -41,14 +57,4 @@
 
 .slides__slide--next:hover {
     filter: blur(3px) brightness(60%);
-}
-
-.slides__slide:first-child {
-    /* cursor: not-allowed; */
-    filter: blur(6px) brightness(30%);
-}
-
-.slides__slide:last-child {
-    cursor: not-allowed;
-    filter: blur(6px) brightness(30%);
 }
