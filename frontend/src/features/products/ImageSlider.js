@@ -3,11 +3,25 @@ import { useEffect, useRef, useState } from 'react';
 import slide1 from '../../assets/images/slide1.jpg';
 import slide2 from '../../assets/images/slide2.jpg';
 import slide3 from '../../assets/images/slide3.jpg';
+import slide4 from '../../assets/images/slide4.jpg';
+import slide5 from '../../assets/images/slide5.jpg';
+import slide6 from '../../assets/images/slide6.jpg';
+import slide7 from '../../assets/images/slide7.jpg';
+
+/*
+slide1 => Flaming Gorge Reservoir, United States
+slide2 => Abisko, Sweden
+slide3 => Joffre Lakes Trail, Mount Currie, BC, Canada
+slide4 => Niederbauen-Chulm, Emmetten, Switzerland
+slide5 => Holgate Glacier, Alaska, USA; Camping on Holgate Arm
+slide6 => Badavut Beach, Turkey
+slide7 => Enjoying sunrise while car camping over a cliff in Sedona, Arizona with girlfriend and dog.
+*/
 
 const ImageSlider = () => {
 
     const slidesRef = useRef();
-    const imageList = [slide3, slide1, slide2, slide3, slide1];
+    const imageList = [slide7, slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide1];
     const [accumulatedWidth, setAccumulatedWidth] = useState(0);
     const [currentWidthChange, setCurrentWidthChange] = useState(0);
     const [counter, setCounter] = useState(1);
@@ -90,8 +104,8 @@ const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handl
                         return (
                             <img key={index} src={item} alt={item}
                                 onClick={index === counter - 1
-                                    ? () => handlePrev(index) : index === counter + 1 
-                                    ? () => handleNext(index) : null}
+                                    ? () => handlePrev(index) : index === counter + 1
+                                        ? () => handleNext(index) : null}
                                 className={index === counter
                                     ? 'slides__slide slides__slide--active' : index === counter - 1
                                         ? 'slides__slide slides__slide--prev' : index === counter + 1
@@ -100,13 +114,20 @@ const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handl
                         );
                     })}
                 </div>
-                <div className='canvas__checkboxs'>
-                    <input className='canvas__checkbox' value={1} name='slide' type='radio' 
-                        checked={counter === 1} onClick={() => handleByIndex(1)} />
-                    <input className='canvas__checkbox' value={2} name='slide' type='radio'
-                        checked={counter === 2} onClick={() => handleByIndex(2)} />
-                    <input className='canvas__checkbox' value={3} name='slide' type='radio' 
-                        checked={counter === 3} onClick={() => handleByIndex(3)} />
+                <div className='checkboxs'>
+                    {imageList.map((item, index) => {
+                        if (index !== 0 && index !== imageList.length - 1) {
+                            return (
+                                <label className='checkbox'>
+                                    <input className='checkbox__input' name='slide' type='radio'
+                                        checked={counter === index} onClick={() => handleByIndex(index)} ></input>
+                                    <span className='checkbox__checkmark'></span>
+                                </label>
+                            );
+                        } else {
+                            return false;
+                        }
+                    })}
                 </div>
             </div>
         </div>

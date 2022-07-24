@@ -1,6 +1,6 @@
 const ProductPage = () => {
     return (
-        <p>Products</p>
+        <></>
     );
 }
 
