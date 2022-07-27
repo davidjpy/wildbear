@@ -1,13 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-
-import slide1 from '../../assets/images/slide1.jpg';
-import slide2 from '../../assets/images/slide2.jpg';
-import slide3 from '../../assets/images/slide3.jpg';
-import slide4 from '../../assets/images/slide4.jpg';
-import slide5 from '../../assets/images/slide5.jpg';
-import slide6 from '../../assets/images/slide6.jpg';
-import slide7 from '../../assets/images/slide7.jpg';
-
 /*
 slide1 => Flaming Gorge Reservoir, United States
 slide2 => Abisko, Sweden
@@ -21,27 +12,10 @@ slide7 => Enjoying sunrise while car camping over a cliff in Sedona, Arizona wit
 const ImageSlider = () => {
 
     const slidesRef = useRef();
-    const imageList = [slide7, slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide1];
+    const imageList = ['slide7', 'slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide1'];
     const [accumulatedWidth, setAccumulatedWidth] = useState(0);
     const [currentWidthChange, setCurrentWidthChange] = useState(0);
-    const [counter, setCounter] = useState(1);
-
-    useEffect(() => {
-        const windowWidthChange = slidesRef.current.clientWidth;
-        slidesRef.current.style.transform = `translate(-${windowWidthChange}px, 0)`;
-        setCurrentWidthChange(windowWidthChange);
-        setAccumulatedWidth(-windowWidthChange);
-    }, []);
-
-    useEffect(() => {
-        function handleResize() {
-            setCurrentWidthChange(slidesRef.current.clientWidth);
-            setAccumulatedWidth(-slidesRef.current.clientWidth);
-            setCounter(1);
-            slidesRef.current.style.transform = `translate(-${slidesRef.current.clientWidth}px, 0px)`;
-        }
-        window.addEventListener('resize', handleResize);
-    });
+    const [counter, setCounter] = useState(0);
 
     const handlePrev = (index) => {
         if (counter === 1) {
@@ -74,6 +48,24 @@ const ImageSlider = () => {
         setCounter(index);
     };
 
+    useEffect(() => {
+        const windowWidthChange = slidesRef.current.clientWidth;
+        slidesRef.current.style.transform = `translate(-${windowWidthChange}px, 0)`;
+        setCurrentWidthChange(windowWidthChange);
+        setAccumulatedWidth(-windowWidthChange);
+        setCounter(1);
+    }, []);
+
+    useEffect(() => {
+        function handleResize() {
+            setCurrentWidthChange(slidesRef.current.clientWidth);
+            setAccumulatedWidth(-slidesRef.current.clientWidth);
+            setCounter(1);
+            slidesRef.current.style.transform = `translate(-${slidesRef.current.clientWidth}px, 0px)`;
+        }
+        window.addEventListener('resize', handleResize);
+    });
+
     const logger = () => {
         console.log(slidesRef.current.clientWidth, accumulatedWidth, counter);
     }
@@ -88,13 +80,14 @@ const ImageSlider = () => {
                 handlePrev={handlePrev}
                 handleNext={handleNext}
                 handleByIndex={handleByIndex}
+                currentWidthChange={currentWidthChange}
             />
             <button onClick={logger}>logger</button>
         </>
     );
 }
 
-const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handleByIndex }) => {
+const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handleByIndex, currentWidthChange }) => {
 
     return (
         <div className='slider'>
@@ -102,15 +95,22 @@ const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handl
                 <div ref={slidesRef} className='slides'>
                     {imageList.map((item, index) => {
                         return (
-                            <img key={index} src={item} alt={item}
-                                onClick={index === counter - 1
-                                    ? () => handlePrev(index) : index === counter + 1
-                                        ? () => handleNext(index) : null}
-                                className={index === counter
-                                    ? 'slides__slide slides__slide--active' : index === counter - 1
-                                        ? 'slides__slide slides__slide--prev' : index === counter + 1
-                                            ? 'slides__slide slides__slide--next' : 'slides__slide'}
-                            />
+                            <>
+                                <img key={index} src={`/assets/images/${item}.jpg`} alt={item}
+                                    onClick={index === counter - 1
+                                        ? () => handlePrev(index) : index === counter + 1
+                                            ? () => handleNext(index) : null}
+                                    className={index === counter
+                                        ? 'slides__slide slides__slide--active'
+                                        : 'slides__slide slides__slide--inactive'}
+                                />
+                                <div className={index === counter
+                                    ? 'slides__texts slides__texts--active'
+                                    : 'slides__texts slides__texts--inactive'}
+                                    style={{ transform: `translate(${currentWidthChange * index}px, 0)` }}>
+                                    <h2 className='slides__text slides__text--header'>Hello world</h2>
+                                </div>
+                            </>
                         );
                     })}
                 </div>
@@ -118,8 +118,8 @@ const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handl
                     {imageList.map((item, index) => {
                         if (index !== 0 && index !== imageList.length - 1) {
                             return (
-                                <label className='checkbox'>
-                                    <input className='checkbox__input' name='slide' type='radio'
+                                <label key={index} className='checkbox'>
+                                    <input className='checkbox__input' name='slide' type='radio' readOnly
                                         checked={counter === index} onClick={() => handleByIndex(index)} ></input>
                                     <span className='checkbox__checkmark'></span>
                                 </label>

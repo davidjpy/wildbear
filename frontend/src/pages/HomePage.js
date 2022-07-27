@@ -1,5 +1,5 @@
 import './HomePage.css';
-import ImageSlider from '../features/products/ImageSlider';
+import ImageSlider from '../features/promotion/ImageSlider';
 
 const HomePage = () => {
     return (
