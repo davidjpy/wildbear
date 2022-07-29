@@ -201,55 +201,125 @@
 .billboard__divider {
     background-color: rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 1rem;
+    padding: 0.8rem;
 }
 
 .divider__logo {
     margin-left: 5px;
     vertical-align: bottom;
+    height: 25px;
+    width: 25px;
 }
 
 .billboard__categories {
-    width: 1400px;
+    width: 1500px;
     margin: auto;
 }
 
 .categories__cards {
     display: flex;
     justify-content: space-around;
-    padding: 4rem 0;
+    padding: 3.5rem 0;
     margin: 0 auto;
 }
 
 .cards__card {
     display: flex;
     gap: 18px;
-    align-items: center;
-    width: fit-content;
 }
 
 .card__icon {
-    height: 100px;
-    width: 100px;
-    padding: 1.6rem;
+    height: 110px;
+    width: 110px;
+    padding: 1.8rem;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.1);
     color: rgb(53, 53, 53)
 } 
 
+.card__texts {
+    width: 200px;
+    height: 100px;
+}
+
 .card__header {
-    color: #DB4222;
     font-size: 1.2rem;
 }
 
-.card__texts {
-    width: 180px;
+.card__header--highlight {
+    color: #DB4222;
 }
 
 .card__body {
     padding: 1rem 0;
     font-size: 0.8rem;
     text-align: justify;
+}
+
+.card__body--highlight {
+    color: #DB4222;
+    font-style: italic;
+    padding: 1rem 0 0 0;
+}
+
+@media screen and (max-width: 1500px) {
+    .billboard__categories {
+        width: 90%;
+    }
+
+    .card__header {
+        padding-top: 1rem;
+    }
+
+    .cards__card {
+        display: inline-block;
+        text-align: center;
+    }
+
+    .card__body--highlight {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .categories__cards {
+        display: block;
+        text-align: center;
+    }
+
+    .cards__card {
+        padding: 0rem 2rem 2rem 2rem;
+    }
+
+    .card__texts {
+        width: auto;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .billboard__divider {
+        font-size: medium;
+        padding: 0.6rem;
+    }
+    
+    .divider__logo {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* .billboard__divider {
+        background-color: rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 0.8rem;
+    }
+    
+    .divider__logo {
+        margin-left: 5px;
+        vertical-align: bottom;
+        height: 25px;
+        width: 25px;
+    } */
 }
 
 .progress {
