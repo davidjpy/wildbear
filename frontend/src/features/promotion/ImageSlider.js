@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
+import { GiShoppingCart } from 'react-icons/gi';
 
 const ImageSlider = () => {
 
@@ -129,49 +130,55 @@ const ImageSlider = () => {
 const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handleByIndex, currentWidthChange }) => {
 
     return (
-        <div className='imageslider__slider'>
-            <div className='slider__canvas'>
-                <div ref={slidesRef} className='canvas__slides'>
-                    {imageList.map((item, index) => {
-                        return (
-                            <Fragment key={index}>
-                                <img src={`/assets/images/${item.slide}.jpg`} alt={item.slide}
-                                    onClick={index === counter - 1
-                                        ? () => handlePrev(index) : index === counter + 1
-                                            ? () => handleNext(index) : null}
-                                    className={index === counter
-                                        ? 'slides__slide slides__slide--active'
-                                        : 'slides__slide slides__slide--inactive'}
-                                />
-                                <div className={index === counter
-                                    ? 'slides__texts slides__texts--active'
-                                    : 'slides__texts slides__texts--inactive'}
-                                    style={{ transform: `translate3d(${currentWidthChange * index}px, 0, 0)` }}>
-                                    <h2 className='slides__text slides__text--header'>{item.title}</h2>
-                                    <p className='slides__text slides__text--body'>{item.body}</p>
-                                    <p className='slides__text slides__text--quote'>{item.quote}</p>
-                                </div>
-                            </Fragment>
-                        );
-                    })}
-                </div>
-                <div className='imageslider__checkboxs'>
-                    {imageList.map((item, index) => {
-                        if (index !== 0 && index !== imageList.length - 1) {
+        <>
+            <div className='imageslider__slider'>
+                <div className='slider__canvas'>
+                    <div ref={slidesRef} className='canvas__slides'>
+                        {imageList.map((item, index) => {
                             return (
-                                <label key={index} className='checkboxs__checkbox'>
-                                    <input className='checkbox__input' name='slide' type='radio' readOnly
-                                        checked={counter === index} onClick={() => handleByIndex(index)} ></input>
-                                    <span className='checkbox__checkmark'></span>
-                                </label>
+                                <Fragment key={index}>
+                                    <img src={`/assets/images/${item.slide}.jpg`} alt={item.slide}
+                                        onClick={index === counter - 1
+                                            ? () => handlePrev(index) : index === counter + 1
+                                                ? () => handleNext(index) : null}
+                                        className={index === counter
+                                            ? 'slides__slide slides__slide--active'
+                                            : 'slides__slide slides__slide--inactive'}
+                                    />
+                                    <div className={index === counter
+                                        ? 'slides__texts slides__texts--active'
+                                        : 'slides__texts slides__texts--inactive'}
+                                        style={{ transform: `translate3d(${currentWidthChange * index}px, 0, 0)` }}>
+                                        <h2 className='slides__text slides__text--header'>{item.title}</h2>
+                                        <p className='slides__text slides__text--body'>{item.body}</p>
+                                        <p className='slides__text slides__text--quote'>{item.quote}</p>
+                                    </div>
+                                </Fragment>
                             );
-                        } else {
-                            return false;
-                        }
-                    })}
+                        })}
+                    </div>
+                    <div className='imageslider__checkboxs'>
+                        {imageList.map((item, index) => {
+                            if (index !== 0 && index !== imageList.length - 1) {
+                                return (
+                                    <label key={index} className='checkboxs__checkbox'>
+                                        <input className='checkbox__input' name='slide' type='radio' readOnly
+                                            checked={counter === index} onClick={() => handleByIndex(index)} ></input>
+                                        <span className='checkbox__checkmark'></span>
+                                    </label>
+                                );
+                            } else {
+                                return false;
+                            }
+                        })}
+                    </div>
                 </div>
             </div>
-        </div>
+            <h3 className='imageslider__divider'>
+                What You’re Looking For Camping Is All Here
+                <GiShoppingCart className='divider__logo' />
+            </h3>
+        </>
     );
 }
 

@@ -1,5 +1,8 @@
 .header {
+    position: sticky;
     background-color: #fff;
+    top: 0;
+    z-index: 200;
 }
 
 .bar {
@@ -15,7 +18,6 @@
 }
 
 .nav {
-    position: sticky;
     display: flex;
     box-shadow: 0 5px 5px rgba(43, 43, 43, 0.4);
 }
