@@ -65,6 +65,7 @@ const ImageSlider = () => {
     const [counter, setCounter] = useState(0);
 
     const handlePrev = (index) => {
+        setCurrentWidthChange(slidesRef.current.clientWidth);
         if (counter === 1) {
             const lastSlideWidth = currentWidthChange * (imageList.length - 2);
             slidesRef.current.style.transform = `translate3d(-${lastSlideWidth}px, 0, 0)`;
@@ -78,6 +79,7 @@ const ImageSlider = () => {
     };
 
     const handleNext = (index) => {
+        setCurrentWidthChange(slidesRef.current.clientWidth);
         if (counter === imageList.length - 2) {
             slidesRef.current.style.transform = `translate3d(${-currentWidthChange}px, 0, 0)`;
             setAccumulatedWidth(-currentWidthChange);
@@ -92,6 +94,7 @@ const ImageSlider = () => {
     const handleByIndex = (index) => {
         slidesRef.current.style.transform = `translate3d(-${currentWidthChange * index}px, 0, 0)`;
         setAccumulatedWidth(-currentWidthChange * index);
+        setCurrentWidthChange(slidesRef.current.clientWidth);
         setCounter(index);
     };
 

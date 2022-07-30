@@ -10,7 +10,7 @@ const HomePage = () => {
             <ImageSlider />
             <div className='homepage__container'>
                 <BillBoard />
-                {/* <NavImages /> */}
+                <NavImages />
                 <WhyUs />
             </div>
         </div>
