@@ -1,6 +1,6 @@
-const WhyUs = () => {
+const WhyUs = ({ scrollRef }) => {
     return (
-        <div>
+        <div ref={scrollRef} >
             <div className='whyus__about'>
                 <h3>Why You Would Want to Buy From Us ?</h3>
                 <div className='about__divider' />
