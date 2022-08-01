@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { GiShoppingCart } from 'react-icons/gi';
 
-const ImageSlider = () => {
+const Slider = () => {
 
     const slidesRef = useRef();
     const imageList = [
@@ -76,7 +76,7 @@ const ImageSlider = () => {
             setAccumulatedWidth(prev => prev + currentWidthChange);
             setCounter(index);
         }
-    };
+    }
 
     const handleNext = (index) => {
         setCurrentWidthChange(slidesRef.current.clientWidth);
@@ -89,7 +89,7 @@ const ImageSlider = () => {
             setAccumulatedWidth(prev => prev - currentWidthChange);
             setCounter(index);
         }
-    };
+    }
 
     const handleByIndex = (index) => {
         slidesRef.current.style.transform = `translate3d(-${currentWidthChange * index}px, 0, 0)`;
@@ -134,9 +134,9 @@ const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handl
 
     return (
         <>
-            <div className='imageslider__slider'>
+            <div className='slider'>
                 <div className='slider__canvas'>
-                    <div ref={slidesRef} className='canvas__slides'>
+                    <div ref={slidesRef} className='slider__slides'>
                         {imageList.map((item, index) => {
                             return (
                                 <Fragment key={index}>
@@ -145,29 +145,29 @@ const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handl
                                             ? () => handlePrev(index) : index === counter + 1
                                                 ? () => handleNext(index) : null}
                                         className={index === counter
-                                            ? 'slides__slide slides__slide--active'
-                                            : 'slides__slide slides__slide--inactive'}
+                                            ? 'slider__slide slider__slide--active'
+                                            : 'slider__slide slider__slide--inactive'}
                                     />
                                     <div className={index === counter
-                                        ? 'slides__texts slides__texts--active'
-                                        : 'slides__texts slides__texts--inactive'}
+                                        ? 'slider__texts slider__texts--active'
+                                        : 'slider__texts slider__texts--inactive'}
                                         style={{ transform: `translate3d(${currentWidthChange * index}px, 0, 0)` }}>
-                                        <h2 className='slides__text slides__text--header'>{item.title}</h2>
-                                        <p className='slides__text slides__text--body'>{item.body}</p>
-                                        <p className='slides__text slides__text--quote'>{item.quote}</p>
+                                        <h2 className='slider__text slider__header'>{item.title}</h2>
+                                        <p className='slider__text slider__body'>{item.body}</p>
+                                        <p className='slider__text slider__quote'>{item.quote}</p>
                                     </div>
                                 </Fragment>
                             );
                         })}
                     </div>
-                    <div className='imageslider__checkboxs'>
+                    <div className='slider__checkboxs'>
                         {imageList.map((item, index) => {
                             if (index !== 0 && index !== imageList.length - 1) {
                                 return (
-                                    <label key={index} className='checkboxs__checkbox'>
-                                        <input className='checkbox__input' name='slide' type='radio' readOnly
+                                    <label key={index} className='slider__checkbox'>
+                                        <input className='slider__input' name='slide' type='radio' readOnly
                                             checked={counter === index} onClick={() => handleByIndex(index)} ></input>
-                                        <span className='checkbox__checkmark'></span>
+                                        <span className='slider__checkmark'></span>
                                     </label>
                                 );
                             } else {
@@ -177,7 +177,7 @@ const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handl
                     </div>
                 </div>
             </div>
-            <h3 className='imageslider__divider'>
+            <h3 className='divider'>
                 What You’re Looking For Camping Is All Here
                 <GiShoppingCart className='divider__logo' />
             </h3>
@@ -185,4 +185,4 @@ const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handl
     );
 }
 
-export default ImageSlider;
+export default Slider;

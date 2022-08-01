@@ -1,9 +1,10 @@
 import { useRef } from 'react';
 
 import './HomePage.css';
-import ImageSlider from '../features/promotion/ImageSlider';
+import Slider from '../features/promotion/Slider';
 import BillBoard from '../features/promotion/BillBoard';
-import NavImages from '../features/promotion/NavImages';
+import ImageBoard from '../features/promotion/ImageBoard';
+import NewProducts from '../features/products/NewProducts'
 import WhyUs from '../features/promotion/WhyUs';
 
 const HomePage = () => {
@@ -16,10 +17,11 @@ const HomePage = () => {
 
     return (
         <div>
-            <ImageSlider />
-            <div className='homepage__container'>
+            <Slider />
+            <div className='homepage'>
                 <BillBoard />
-                <NavImages handleScroll={handleScroll} />
+                <ImageBoard handleScroll={handleScroll} />
+                <NewProducts />
                 <WhyUs scrollRef={scrollRef} />
             </div>
         </div>
