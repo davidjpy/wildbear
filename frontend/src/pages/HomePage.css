@@ -391,20 +391,18 @@
 }
 
 @media screen and (max-width: 1350px) {
-    .imageboard {
-        width: 100%;
-    }
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1350px) {
     .imageboard {
         flex-direction: column;
         align-items: center;
         gap: 40px;
         padding-top: 0;
     }
+
     .imageboard__wrapper {
-        width: 80%;
+        width: 100%;
     }
 }
 
@@ -416,7 +414,7 @@
     .imageboard__header {
         font-size: 1.4rem;
     }
-    
+
     .imageboard__body {
         font-size: 0.8rem;
     }
@@ -433,12 +431,13 @@
         top: 10%;
         left: 5%;
     }
-    
+
     .imageboard__body {
         font-size: 0.6rem;
         top: 25%;
         left: 5%;
         width: 90%;
+        line-height: 16px;
     }
 
     .imageboard__button {
@@ -447,6 +446,46 @@
         top: 65%;
         left: 5%;
     }
+}
+
+/* ========================================= 
+================ NewProducts ===============
+========================================= */
+
+.newproducts {
+    margin: auto;
+    margin-bottom: 3rem;
+    width: 80%;
+}
+
+.newproducts__divider {
+    text-align: center;
+}
+
+.newproducts__underline {
+    height: 2px;
+    width: 35px;
+    background-color: #DB4222;
+    margin: 8px auto;
+}
+
+.newproducts__cards {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.newproducts__card {
+    width: 19%;
+    background-color: white;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.newproducts__image {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
 }
 
 /* ========================================= 
@@ -462,7 +501,7 @@
     text-align: center;
 }
 
-.whyus__divider {
+.whyus__underline {
     height: 2px;
     width: 50px;
     background-color: #DB4222;
@@ -528,7 +567,7 @@
     }
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1260px) {
     .whyus__header {
         font-size: 0.6rem;
         padding: 0rem 0rem 0rem 1.8rem;
