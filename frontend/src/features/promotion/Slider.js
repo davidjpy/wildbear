@@ -134,7 +134,7 @@ const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handl
 
     return (
         <>
-            <div className='slider'>
+            <section className='slider'>
                 <div className='slider__canvas'>
                     <div ref={slidesRef} className='slider__slides'>
                         {imageList.map((item, index) => {
@@ -176,7 +176,7 @@ const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handl
                         })}
                     </div>
                 </div>
-            </div>
+            </section>
             <h3 className='divider'>
                 What You’re Looking For Camping Is All Here
                 <GiShoppingCart className='divider__logo' />

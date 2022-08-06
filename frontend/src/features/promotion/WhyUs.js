@@ -1,6 +1,6 @@
 const WhyUs = ({ scrollRef }) => {
     return (
-        <div ref={scrollRef} className='whyus' >
+        <section ref={scrollRef} className='whyus' >
             <div className='whyus__about'>
                 <h3>Why You Would Want to Buy From Us ?</h3>
                 <div className='whyus__underline' />
@@ -19,7 +19,7 @@ const WhyUs = ({ scrollRef }) => {
                 <div className='whyus__arrow whyus__arrow--even' />
                 <h4 className='whyus__header whyus__header--odd'>After Sales Service</h4>
             </div>
-        </div>
+        </section>
     );
 }
 

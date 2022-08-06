@@ -1,28 +1,37 @@
 const NewProducts = () => {
 
-    const fakeData = Array(5).fill(null);
+    const newProducts = ['product1', 'product2', 'product3']
+    const newProducts2 = ['product4', 'product5', 'product6']
 
     return (
-        <div className='newproducts'>
+        <section className='newproducts'>
             <div className='newproducts__divider'>
                 <h3>Featured Products</h3>
                 <div className='newproducts__underline' />
             </div>
             <div className='newproducts__cards'>
-                {fakeData.map((item) => {
+                {newProducts.map((item) => {
                     return (
-                        <Product />
+                        <Product key={item} item={item} />
                     );
                 })}
             </div>
-        </div>
+            <div className='newproducts__cards'>
+                {newProducts2.map((item) => {
+                    return (
+                        <Product key={item} item={item} />
+                    );
+                })}
+            </div>
+        </section>
     );
 }
 
-const Product = () => {
+const Product = ({ item }) => {
     return (
         <div className='newproducts__card'>
-            <img src='/assets/images/newProduct.jpg' alt='merch' className='newproducts__image' />
+            <img src={`/assets/images/products/${item}.jpg`} alt='merch' className='newproducts__image' />
+            <h3 className='newproducts__pricetag'>$125</h3>
         </div>
     );
 }

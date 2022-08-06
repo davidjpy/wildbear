@@ -4,7 +4,7 @@ import { FaCampground } from 'react-icons/fa'
 
 const BillBoard = () => {
     return (
-            <div className='billboard'>
+            <section className='billboard'>
                 <div className='billboard__category'>
                     <FaCampground className='billboard__icon' />
                     <div className='billboard__texts'>
@@ -53,7 +53,7 @@ const BillBoard = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
     );
 }
 

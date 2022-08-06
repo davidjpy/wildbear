@@ -1,15 +1,20 @@
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { navigation } from '../nav/navSlice';
 
 const ImageBoard = ({ handleScroll }) => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const navigateProductsPage = () => {
-        navigate('/product')
-    };
+        dispatch(navigation({ tab: 'PRODUCTS', nav: 'products' }));
+        navigate('/products');
+    }
 
     return (
-        <div className='imageboard'>
+        <section className='imageboard'>
             <div className='imageboard__wrapper'>
                 <img src='/assets/images/about.jpg' alt='about' className='imageboard__image' />
                 <p className='imageboard__text imageboard__header'>But why ?</p>
@@ -26,7 +31,7 @@ const ImageBoard = ({ handleScroll }) => {
                     Get Started <span className='imageboard__icon'>&#x279D;</span>
                 </button>
             </div>
-        </div>
+        </section>
     );
 }
 

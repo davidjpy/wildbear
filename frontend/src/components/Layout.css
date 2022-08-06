@@ -1,37 +1,47 @@
-.header {
+/* ========================================= 
+=================== Nav ====================
+========================================= */
+
+.nav {
     position: sticky;
-    background-color: #fff;
     top: 0;
     z-index: 200;
 }
 
-.bar {
+.nav__header {
     display: flex;
     justify-content: flex-end;
-    background-color: black;
-    padding: 0.5rem;
+    background-color: rgb(27, 27, 27);
+    padding: 1rem;
 }
 
-.bar__title {
+.nav__title {
     color: #fff;
     font-style: italic;
 }
 
-.nav {
+.nav__tabs {
     display: flex;
     box-shadow: 0 5px 5px rgba(43, 43, 43, 0.4);
+    color: black;
+    background-color: white;
+
 }
 
 .nav__tab {
     height: 100%;
     width: 16.67%;
-    color: black
 }
 
-.nav__tab:hover {
-    animation-name: apply;
-    animation-duration: 0.5s;
+
+.nav__tab--inactive:hover {
     background-color: rgba(187, 187, 187, 0.5);
+    transition: all 0.2s ease-in-out;
+}
+
+.nav__tab--active {
+    color: #DB4222;
+    background: linear-gradient(transparent 85%, #DB4222 15%);
 }
 
 a:-webkit-any-link {
@@ -44,11 +54,6 @@ a:-webkit-any-link {
     text-decoration: none;
 }
 
-
-@keyframes apply {
-    from {
-        background-color: inherit;
-    } to {
-        background-color: rgba(187, 187, 187, 0.5);
-    }
-}
+/* ========================================= 
+=================== Footer =================
+========================================= */
