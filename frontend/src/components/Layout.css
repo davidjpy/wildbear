@@ -57,3 +57,115 @@ a:-webkit-any-link {
 /* ========================================= 
 =================== Footer =================
 ========================================= */
+
+.footer {
+    margin-top: 3rem;
+    background-color: rgb(27, 27, 27);
+}
+
+.footer__redirect {
+    padding: 0.8rem;
+    background-color: rgb(59, 55, 55);
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+.footer__bar {
+    padding: 0 15rem 1rem 15rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__section {
+    width: 18%;
+}
+
+.footer__section--body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer__section--inline {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer__icon {
+    color: rgb(172, 172, 172);
+}
+
+.footer__icon--location {
+    font-size: 1.4rem;
+}
+
+.footer__icon--inline {
+    font-size: 1.2rem;
+}
+
+.footer__icon--media {
+    font-size: 2rem;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.footer__icon--media:hover {
+    color: white;
+}
+
+.footer__text {
+    color: white;
+    text-align: justify;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footer__text--header {
+    padding: 2rem 0;
+    font-size: 1.3rem;
+}
+
+.footer__text--body {
+    color: rgb(172, 172, 172);
+    line-height: 22px;
+}
+
+.footer__text--link {
+    color: rgb(172, 172, 172);
+    cursor: pointer;
+}
+
+.footer__text--link:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.footer__divider {
+    border-top: 1px solid rgb(117, 117, 117);
+    margin: 0.8rem 0 0.4rem 0;
+    width: 100%;
+}   
+
+.footer__disclaimer {
+    padding: 2rem 15rem 3rem 15rem;
+    text-align: center;
+}
+
+.footer__text--disclaimer {
+    padding: 2rem 0;
+    color: white;
+}  
+
+.footer__text--disclaimer-link {
+    cursor: pointer;
+}
+
+.footer__text--disclaimer-italic {
+    font-style: italic;
+}
+
+.footer__text--disclaimer-link:hover {
+    text-decoration: underline;
+}

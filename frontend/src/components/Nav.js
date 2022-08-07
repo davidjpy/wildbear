@@ -17,8 +17,6 @@ const Nav = () => {
     const dispatch = useDispatch();
     const currentTab = useSelector((state) => state.nav.tab);
 
-    console.log(currentTab)
-
     return (
         <header className='nav'>
             <div className='nav__header'>
