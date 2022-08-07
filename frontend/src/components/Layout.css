@@ -33,7 +33,6 @@
     width: 16.67%;
 }
 
-
 .nav__tab--inactive:hover {
     background-color: rgba(187, 187, 187, 0.5);
     transition: all 0.2s ease-in-out;
@@ -70,25 +69,26 @@ a:-webkit-any-link {
     color: white;
     cursor: pointer;
 }
+
 .footer__bar {
-    padding: 0 15rem 1rem 15rem;
+    width: 70%;
     display: flex;
     justify-content: space-between;
+    margin: auto;
+    padding-bottom: 2rem;
 }
 
 .footer__section {
-    width: 18%;
+    width: 20%;
 }
 
-.footer__section--body {
-    width: 100%;
+.footer__body {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.footer__section--inline {
-    width: 100%;
+.footer__inline {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -149,8 +149,14 @@ a:-webkit-any-link {
 }   
 
 .footer__disclaimer {
-    padding: 2rem 15rem 3rem 15rem;
-    text-align: center;
+    width: 70%;
+    margin: auto;
+    padding-bottom: 2rem;
+}
+
+.footer__wrapper {
+    display: flex;
+    align-items: center;
 }
 
 .footer__text--disclaimer {
@@ -168,4 +174,75 @@ a:-webkit-any-link {
 
 .footer__text--disclaimer-link:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 1600px) {
+    .footer__bar {
+        width: 90%;
+    }
+    
+    .footer__disclaimer {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .footer__bar {
+        width: 95%;
+    }
+    
+    .footer__disclaimer {
+        width: 95%;
+    }
+
+    .footer__text {
+        font-size: 0.8rem;
+    }
+
+    .footer__text--header {
+        font-size: 1rem;
+    }
+
+    .footer__icon--media {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .footer__text {
+        font-size: 0.4rem;
+    }
+
+    .footer__text--header {
+        font-size: 0.8rem;
+    }
+
+    .footer__section {
+        width: 22%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .footer__bar {
+        flex-direction: column;
+        width: 80%;
+    }
+    
+    .footer__disclaimer {
+        width: 80%;
+    }
+    
+    .footer__section {
+        width: 70%;
+        margin: auto;
+    }
+
+    .footer__wrapper {
+        flex-direction: column;
+    }
+
+    .footer__text--disclaimer {
+        padding: 1rem 0;
+        color: white;
+    }  
 }

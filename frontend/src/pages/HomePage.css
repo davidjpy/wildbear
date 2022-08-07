@@ -391,9 +391,6 @@
 }
 
 @media screen and (max-width: 1350px) {
-}
-
-@media screen and (max-width: 1350px) {
     .imageboard {
         flex-direction: column;
         align-items: center;
@@ -496,6 +493,27 @@
     background-color: #DB4222;
     border-radius: 0 0 8px 8px;
     margin-top: -5px;
+}
+
+@media screen and (max-width: 950px) {
+    .newproducts__image {
+        padding: 1rem;
+    }
+
+    .newproducts__pricetag {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .newproducts__image {
+        padding: 1rem;
+    }
+
+    .newproducts__pricetag {
+        padding: 0.2rem;
+        font-size: 0.6rem;
+    }
 }
 
 /* ========================================= 

@@ -27,7 +27,7 @@ const Footer = () => {
                 </div>
                 <div className='footer__section'>
                     <h4 className='footer__text footer__text--header'>RESOURCES</h4>
-                    <div className='footer__section footer__section--body'>
+                    <div className='footer__body'>
                         <p className='footer__text footer__text--link'>Learn More About WildBear</p>
                         <p className='footer__text footer__text--link'>Support From Help Centre</p>
                         <p className='footer__text footer__text--link'>Technical Documentations</p>
@@ -38,7 +38,7 @@ const Footer = () => {
                 </div>
                 <div className='footer__section'>
                     <h4 className='footer__text footer__text--header'>JOIN US</h4>
-                    <div className='footer__section footer__section--body'>
+                    <div className='footer__body'>
                         <p className='footer__text footer__text--link'>Life in WildBear</p>
                         <p className='footer__text footer__text--link'>Career Developments</p>
                         <p className='footer__text footer__text--link'>Sell products on WildBear</p>
@@ -49,21 +49,21 @@ const Footer = () => {
                 </div>
                 <div className='footer__section'>
                     <h4 className='footer__text footer__text--header'>CONTACT</h4>
-                    <div className='footer__section footer__section--body'>
-                        <div className='footer__section footer__section--inline'>
+                    <div className='footer__body'>
+                        <div className='footer__inline'>
                             <ImLocation2 className='footer__icon footer__icon--location' />
                             <p className='footer__text footer__text--link' style={{ width: '80% ' }}>Address: 49 Li Lo Lang Street, Kowloon, Hong Kong</p>
                         </div>
                         <div className='footer__divider' />
-                        <div className='footer__section footer__section--inline'>
+                        <div className='footer__inline'>
                             <FaPhoneSquareAlt className='footer__icon footer__icon--inline' />
                             <p className='footer__text footer__text--link' style={{ width: '80% ' }}>Phone: +852 37523347</p>
                         </div>
-                        <div className='footer__section footer__section--inline'>
+                        <div className='footer__inline'>
                             <RiMailFill className='footer__icon footer__icon--inline' />
                             <p className='footer__text footer__text--link' style={{ width: '80% ' }}>Email: info@wildbear.com</p>
                         </div>
-                        <div className='footer__section footer__section--inline' style={{ gap: '5px' }}>
+                        <div className='footer__inline' style={{ gap: '5px' }}>
                             <FaTwitterSquare className='footer__icon footer__icon--media' />
                             <FaFacebookSquare className='footer__icon footer__icon--media' />
                             <FaInstagramSquare className='footer__icon footer__icon--media' />
@@ -76,7 +76,7 @@ const Footer = () => {
             </div>
             <div className='footer__disclaimer'>
                 <div className='footer__divider' />
-                <div className='footer__section--inline'>
+                <div className='footer__wrapper'>
                     <p className='footer__text footer__text--disclaimer' style={{ flex: 1 }}>&#xa9; 2022 WildBear inc. All Rights Reserved | Designed and Created by <span className='footer__text footer__text--disclaimer-link footer__text--disclaimer-italic'>David Ho</span></p>
                     <p className='footer__text footer__text--disclaimer'><span className='footer__text footer__text--disclaimer-link'>Terms of Use</span> | <span className='footer__text footer__text--disclaimer-link'>Privacy Policy</span> | <span className='footer__text footer__text--disclaimer-link'>License Agreement</span></p>
                 </div>
