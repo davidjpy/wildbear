@@ -523,6 +523,7 @@
 .whyus {
     width: 80%;
     margin: auto;
+    padding-bottom: 3rem;
 }
 
 .whyus__about {
@@ -599,6 +600,10 @@
     .whyus__header {
         font-size: 0.6rem;
         padding: 0rem 0rem 0rem 1.8rem;
+    }
+
+    .whyus__body {
+        font-size: 0.8rem;
     }
 
     .whyus__arrow {
