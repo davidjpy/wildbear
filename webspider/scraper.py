@@ -1,4 +1,3 @@
-
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -9,20 +8,45 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
 }
 
-product_links = []
-backpack_list = []
+page_links = [
+    'https://www.rei.com/c/hiking-backpacks?pagesize=90',
+    'https://www.rei.com/c/tents?pagesize=90',
+    'https://www.rei.com/c/sleeping-bags-and-accessories?pagesize=90',
+    'https://www.rei.com/c/camp-kitchen?pagesize=90',
+    'https://www.rei.com/c/camp-furniture?pagesize=90',
+    'https://www.rei.com/c/water-bottles-and-treatment?pagesize=90',
+    'https://www.rei.com/c/gadgets?pagesize=90',
+    'https://www.rei.com/c/hiking-clothing?pagesize=90',
+    'https://www.rei.com/c/hiking-footwear?pagesize=90'
+]
 
-for page_num in range(1, 4):
+page_categories = [
+    'hiking-backpacks',
+    'tents',
+    'sleeping-bags-and-accessories',
+    'camp-kitchen',
+    'camp-furniture',
+    'water-bottles-and-treatment',
+    'gadgets',
+    'hiking-clothing',
+    'hiking-footwear'
+]
+
+for category in page_categories:
     
-    r = requests.get(f'https://www.rei.com/c/hiking-backpacks?page={page_num}')
+    product_links = []
+    product_lists = []
+    
+    r = requests.get(f'https://www.rei.com/c/{category}?pagesize=90')
     soup = BeautifulSoup(r.content, 'lxml')
     productlist = soup.find_all('li', class_='pPe0GNuagvmEFURs1Q_vm')
 
     for item in productlist:
         
         for link in item.find_all('a', {'class': '_1A-arB0CEJjk5iTZIRpjPs _1K5N3WSl_8ywawYr0tzSgT'}, href=True):
+            
             product_links.append(base_url + link['href'][1:])
-              
+                
     for link in product_links:
         
         try:
@@ -35,9 +59,10 @@ for page_num in range(1, 4):
             image =             soup.find('img', class_='generic-image__img')['src']
             
         except:
+            print('Unable to locate the product')
             pass
         
-        backpack = {
+        product_details = {
             'title': title,
             'price': price,
             'description': description,
@@ -45,8 +70,9 @@ for page_num in range(1, 4):
             'image': base_url + image[1:]
         }
         
-        backpack_list.append(backpack)
+        product_lists.append(product_details)
         print(f'Adding {title}')
 
-df = pd.DataFrame(backpack_list)
-df.to_csv('backpack.csv', index=False)
+    df = pd.DataFrame(product_lists)
+    df.to_csv(f'{category}.csv', index=False)
+    print(f'Creating {category}.csv')

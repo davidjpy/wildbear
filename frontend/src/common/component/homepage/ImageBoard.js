@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { navigation } from '../nav/navSlice';
+import { navigation } from '../../../features/nav/navSlice';
 
 const ImageBoard = ({ handleScroll }) => {
 

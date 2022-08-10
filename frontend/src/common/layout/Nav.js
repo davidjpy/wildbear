@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { navigation } from '../features/nav/navSlice';
+import { navigation } from '../../features/nav/navSlice';
 
 
 const Nav = () => {

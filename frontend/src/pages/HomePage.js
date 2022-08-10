@@ -1,11 +1,11 @@
 import { useRef } from 'react';
 
 import './HomePage.css';
-import Slider from '../features/promotion/Slider';
-import BillBoard from '../features/promotion/BillBoard';
-import ImageBoard from '../features/promotion/ImageBoard';
-import NewProducts from '../features/products/NewProducts'
-import WhyUs from '../features/promotion/WhyUs';
+import Slider from '../common/component/homepage/Slider';
+import BillBoard from '../common/component/homepage/BillBoard';
+import ImageBoard from '../common/component/homepage/ImageBoard';
+import NewProducts from '../features/products/NewProducts';
+import WhyUs from '../common/component/homepage/WhyUs';
 
 const HomePage = () => {
 
