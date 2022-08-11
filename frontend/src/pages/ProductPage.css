@@ -13,7 +13,6 @@
 .leftmenu {
     width: 250px;
     background-color: rgb(42, 46, 63);
-    height: 100vh;
     overflow: auto;
 }
 
@@ -49,8 +48,13 @@
     cursor: pointer;
 }
 
+
 .leftmenu__text--body:hover {
-    background-color: #DB4222;
+    background-color: #db4122d3;
+}
+
+.leftmenu__text--active {
+    background-color: #db4122d3;
 }
 
 /* ========================================= 
@@ -191,4 +195,20 @@
     border-bottom: 10px solid rgb(35, 47, 62);
     top: 4px;
     left: 30px;
+}
+
+/* ========================================= 
+================ products ==================
+========================================= */
+
+.products {
+    display: grid;
+    padding: 2rem;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 400px);
+    grid-gap: 15px;
+}
+
+.products__card {
+    background-color: rgba(128, 128, 128, 0.233);
 }

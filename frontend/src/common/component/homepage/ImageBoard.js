@@ -1,15 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
-import { navigation } from '../../../features/nav/navSlice';
 
 const ImageBoard = ({ handleScroll }) => {
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const navigateProductsPage = () => {
-        dispatch(navigation({ tab: 'PRODUCTS', nav: 'products' }));
         navigate('/products');
     }
 

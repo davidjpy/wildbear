@@ -1,20 +1,26 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { HiMenu } from 'react-icons/hi';
 
 const SearchBar = () => {
 
+    const inputRef = useRef();
     const [search, setSearch] = useState('');
-    const [suggestionMode, setSuggestionMode] = useState(true);
+    // const [suggestionMode, setSuggestionMode] = useState(true);
     const [listExpand, setListExpand] = useState(false);
 
     const handleSearchChange = (e) => {
         setSearch(e.target.value);
     }
 
-    const toggleSuggestionMode = () => {
-        setSuggestionMode(!suggestionMode);
+    const handleEmptySearch = () => {
+        setSearch('');
+        inputRef.current.focus();
     }
+
+    // const toggleSuggestionMode = () => {
+    //     setSuggestionMode(!suggestionMode);
+    // }
 
     const toggleListExpand = () => {
         setListExpand(!listExpand);
@@ -34,8 +40,8 @@ const SearchBar = () => {
                 <div className='searchbar__label searchbar__label--middle'>
                     <FaSearch className='searchbar__icons searchbar__icons--search' />
                 </div>
-                <input type='text' onChange={(e) => handleSearchChange(e)} className='searchbar__input' placeholder='Search for products' />
-                <div onClick={() => console.log(search)} className='searchbar__label searchbar__label--end'>
+                <input type='text' ref={inputRef} autoFocus onChange={(e) => handleSearchChange(e)} value={search} className='searchbar__input' placeholder='Search for products' />
+                <div onClick={handleEmptySearch} className='searchbar__label searchbar__label--end'>
                     <FaTimes className='searchbar__icons' />
                 </div>
             </div>

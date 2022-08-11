@@ -44,15 +44,14 @@ for category in page_categories:
     for item in productlist:
         
         for link in item.find_all('a', {'class': '_1A-arB0CEJjk5iTZIRpjPs _1K5N3WSl_8ywawYr0tzSgT'}, href=True):
-            
             product_links.append(base_url + link['href'][1:])
                 
     for link in product_links:
         
         try:
-            r = requests.get(link, headers=headers)
-            soup = BeautifulSoup(r.content, 'lxml')
-            title =              soup.find('h1', class_='product-title product-header__product-title').text.strip()
+            r =                 requests.get(link, headers=headers)
+            soup =              BeautifulSoup(r.content, 'lxml')
+            title =             soup.find('h1', class_='product-title product-header__product-title').text.strip()
             price =             soup.find('span', class_='price-value').text.strip()
             description =       soup.find('p', class_='product-description__text').text.strip()
             rating =            soup.find('span', class_='cdr-rating__number_11-3-1').text.strip()

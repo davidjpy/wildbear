@@ -96,7 +96,7 @@ const Slider = () => {
         setAccumulatedWidth(-currentWidthChange * index);
         setCurrentWidthChange(slidesRef.current.clientWidth);
         setCounter(index);
-    };
+    }
 
     useEffect(() => {
         const windowWidthChange = slidesRef.current.clientWidth;
