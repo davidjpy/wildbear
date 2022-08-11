@@ -6,7 +6,7 @@ const Nav = () => {
     const index = [
         { tab: 'HOME', nav: '/' },
         { tab: 'PRODUCTS', nav: '/products' },
-        { tab: 'HOT SALES', nav: '/hotsales' },
+        { tab: 'SALES', nav: '/hotsales' },
         { tab: 'ABOUT', nav: '/about' },
         { tab: 'CONTACT', nav: '/contact' }
     ];

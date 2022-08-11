@@ -13,7 +13,11 @@
 .leftmenu {
     width: 250px;
     background-color: rgb(42, 46, 63);
-    overflow: auto;
+}
+
+.leftmenu__wrapper {
+    position: sticky;
+    top: 80px;
 }
 
 .leftmenu__header {
@@ -62,6 +66,8 @@
 ========================================= */
 
 .searchbar {
+    position: sticky;
+    top: 80px;
     display: flex;
     align-items: center;
     background-color: rgb(42, 46, 63);

@@ -12,7 +12,8 @@
     display: flex;
     justify-content: flex-end;
     background-color: rgb(27, 27, 27);
-    padding: 1rem;
+    padding: 0.8rem;
+    max-height: 40px;
 }
 
 .nav__title {
@@ -25,7 +26,6 @@
     box-shadow: 0 5px 5px rgba(43, 43, 43, 0.4);
     color: black;
     background-color: white;
-
 }
 
 .nav__tab {
@@ -44,13 +44,32 @@
 }
 
 a:-webkit-any-link {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
     height: 100%;
     width: 100%;
     text-align: center;
     padding: 0.6rem;
     color: inherit;
     text-decoration: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .nav__tab {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .nav__tab {
+        font-size: 0.6rem;
+    }
+    
+    a:-webkit-any-link {
+        padding: 0;
+    }
 }
 
 /* ========================================= 
