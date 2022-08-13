@@ -1,18 +1,45 @@
 import { Fragment, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LeftMeun = () => {
 
+    const navigate = useNavigate();
     const menuOptions = [
-        { title: 'EXPLORE', subTitle: ['All Categories'] },
-        { title: 'SHELTERS', subTitle: ['Tents', 'Sleeping Bags', 'Furniture', 'Kitchen'] },
-        { title: 'WEARS', subTitle: ['Clouthes', 'Footwears', 'Backpacks'] },
-        { title: 'TOOLS & NECESSITIES', subTitle: ['Gadgets', 'Treatment'] }
+        {
+            title: 'EXPLORE',
+            subTitle: [{ header: 'All Categories', nav: 'all' }]
+        },
+        {
+            title: 'SHELTERS',
+            subTitle: [
+                { header: 'Tents', nav: 'tents' },
+                { header: 'Sleeping Bags', nav: 'sleeping-bags-and-accessories' },
+                { header: 'Furniture', nav: 'camp-furniture' },
+                { header: 'Kitchen', nav: 'camp-kitchen' }
+            ]
+        },
+        {
+            title: 'WEARS',
+            subTitle: [
+                { header: 'Clouthes', nav: 'hiking-clothing' },
+                { header: 'Footwears', nav: 'hiking-footwear' },
+                { header: 'Backpacks', nav: 'hiking-backpacks' }
+            ]
+        },
+        {
+            title: 'TOOLS & NECESSITIES',
+            subTitle: [
+                { header: 'Gadgets', nav: 'gadgets' },
+                { header: 'Treatment', nav: 'water-bottles-and-treatment' }
+            ]
+        }
     ];
 
     const [active, setActive] = useState('All Categories');
 
-    const handleSetActive = (subItem) => {
-        setActive(subItem);
+    const handleSetActive = (header, nav) => {
+        setActive(header);
+        navigate(`/products/${nav}`);
     }
 
     return (
@@ -28,11 +55,11 @@ const LeftMeun = () => {
                                 <p className='leftmenu__text leftmenu__text--subtitle'>{item.title}</p>
                                 {item.subTitle.map((subItem) => {
                                     return (
-                                        <p key={subItem} onClick={() => handleSetActive(subItem)}
-                                            className={active === subItem
+                                        <p key={subItem.header} onClick={() => handleSetActive(subItem.header, subItem.nav)}
+                                            className={active === subItem.header
                                                 ? 'leftmenu__text leftmenu__text--body leftmenu__text--active'
                                                 : 'leftmenu__text leftmenu__text--body'}>
-                                            {subItem}
+                                            {subItem.header}
                                         </p>
                                     );
                                 })}

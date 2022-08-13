@@ -5,7 +5,7 @@ from .views import CategoryViewset, ProductViewset
 
 router = routers.DefaultRouter()
 router.register('category', CategoryViewset)
-router.register('product', ProductViewset)
+router.register('products', ProductViewset)
 
 urlpatterns = [
     path('', include(router.urls))

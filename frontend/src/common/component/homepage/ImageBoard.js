@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ImageBoard = ({ handleScroll }) => {
@@ -5,7 +6,7 @@ const ImageBoard = ({ handleScroll }) => {
     const navigate = useNavigate();
 
     const navigateProductsPage = () => {
-        navigate('/products');
+        navigate('/products/all');
     }
 
     return (

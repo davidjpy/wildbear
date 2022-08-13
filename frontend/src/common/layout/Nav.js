@@ -5,13 +5,14 @@ const Nav = () => {
 
     const index = [
         { tab: 'HOME', nav: '/' },
-        { tab: 'PRODUCTS', nav: '/products' },
+        { tab: 'PRODUCTS', nav: '/products/all' },
         { tab: 'SALES', nav: '/hotsales' },
         { tab: 'ABOUT', nav: '/about' },
         { tab: 'CONTACT', nav: '/contact' }
     ];
 
     const location = useLocation();
+    const path = location.pathname.slice(0, location.pathname.indexOf('/', 1));
 
     return (
         <header className='nav'>
@@ -22,7 +23,7 @@ const Nav = () => {
                 {index.map((item) => {
                     return (
                         <h4 key={item.tab}
-                            className={item.nav === location.pathname
+                            className={item.nav.slice(0, item.nav.indexOf('/', 1)) === path
                                 ? 'nav__tab nav__tab--active'
                                 : 'nav__tab nav__tab--inactive'}>
                             <Link to={item.nav}>{item.tab}</Link>
