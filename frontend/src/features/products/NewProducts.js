@@ -30,7 +30,7 @@ const NewProducts = () => {
 const Product = ({ item }) => {
     return (
         <div className='newproducts__card'>
-            <img src={`/assets/images/products/${item}.jpg`} alt='merch' className='newproducts__image' />
+            <img src={`/assets/images/products/${item}.jpg`} alt='merch' className='newproducts__image' loading='eager' />
             <h3 className='newproducts__pricetag'>$125</h3>
         </div>
     );

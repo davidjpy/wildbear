@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
 
-
 const Nav = () => {
 
     const index = [

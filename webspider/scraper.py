@@ -49,28 +49,44 @@ for category in page_categories:
     for link in product_links:
         
         try:
-            r =                 requests.get(link, headers=headers)
-            soup =              BeautifulSoup(r.content, 'lxml')
-            title =             soup.find('h1', class_='product-title product-header__product-title').text.strip()
-            price =             soup.find('span', class_='price-value').text.strip()
-            description =       soup.find('p', class_='product-description__text').text.strip()
-            rating =            soup.find('span', class_='cdr-rating__number_11-3-1').text.strip()
-            image =             soup.find('img', class_='generic-image__img')['src']
+            feature_list = []
+            
+            r =                     requests.get(link, headers=headers)
+            soup =                  BeautifulSoup(r.content, 'lxml')
+            title =                 soup.find('h1', class_='product-title product-header__product-title').text.strip()
+            brand =                 soup.find('a', attrs={'class':'cdr-link_11-3-1', 'id': 'product-brand-link'}).text.strip()
+            price =                 soup.find('span', class_='price-value').text.strip()
+            description =           soup.find('p', class_='product-description__text').text.strip()
+            rating =                soup.find('span', class_='cdr-rating__number_11-3-1').text.strip()
+            image =                 soup.find('img', class_='generic-media__img')['src']
+            unordered_feature =     soup.find_all('ul', class_='product-features__list cdr-list_11-3-1 cdr-list--unordered_11-3-1')
+            
+            for item in unordered_feature:
+                new_soup = BeautifulSoup(str(item), 'html.parser')
+                lis = new_soup.find_all('li')
+                
+                for li in lis:
+                    feature_list.append(li.text.strip())
+            
+            feature =               feature_list
+            
+            product_details = {
+                'title': title,
+                'brand': brand,
+                'price': price,
+                'description': description,
+                'rating': rating,
+                'image': base_url + image[1:],
+                'feature': feature_list
+            }
+            
+            product_lists.append(product_details)
+            print(f'Adding {title}')
             
         except:
             print('Unable to locate the product')
             pass
         
-        product_details = {
-            'title': title,
-            'price': price,
-            'description': description,
-            'rating': rating,
-            'image': base_url + image[1:]
-        }
-        
-        product_lists.append(product_details)
-        print(f'Adding {title}')
 
     df = pd.DataFrame(product_lists)
     df.to_csv(f'{category}.csv', index=False)

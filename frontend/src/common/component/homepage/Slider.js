@@ -142,7 +142,7 @@ const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handl
                         {imageList.map((item, index) => {
                             return (
                                 <Fragment key={index}>
-                                    <img src={`/assets/images/${item.slide}.jpg`} alt={item.slide}
+                                    <img src={`/assets/images/${item.slide}.jpg`} alt={item.slide} loading='eager'
                                         onClick={index === counter - 1
                                             ? () => handlePrev(index) : index === counter + 1
                                                 ? () => handleNext(index) : null}

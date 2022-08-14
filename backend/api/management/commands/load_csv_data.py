@@ -50,10 +50,12 @@ class Command(BaseCommand):
                     data = Product(
                         category =          Category.objects.get(name=file),
                         title =             row['title'],
+                        brand =             row['brand'],
                         price =             price,
                         description =       row['description'],
                         rating =            row['rating'],
-                        image =             row['image']
+                        image =             row['image'],
+                        feature =           row['feature']
                     )
                     data.save()
                     
