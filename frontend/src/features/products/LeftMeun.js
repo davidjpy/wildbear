@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const LeftMeun = () => {
+const LeftMeun = ({ leftMenuRef }) => {
 
     const navigate = useNavigate();
     const menuOptions = [
@@ -43,7 +43,7 @@ const LeftMeun = () => {
     }
 
     return (
-        <div className='leftmenu'>
+        <div ref={leftMenuRef} className='leftmenu'>
             <div className='leftmenu__wrapper'>
                 <div className='leftmenu__header'>
                     <h5 className='leftmenu__text leftmenu__text--title'>CATEGORIES</h5>

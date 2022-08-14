@@ -11,8 +11,10 @@
 ========================================= */
 
 .leftmenu {
+    position: relative;
     width: 250px;
     background-color: rgb(42, 46, 63);
+    transition: all 0.4s ease-in-out;
 }
 
 .leftmenu__wrapper {
@@ -61,6 +63,15 @@
     background-color: #db4122d3;
 }
 
+@media screen and (max-width: 1000px) {
+    .leftmenu {
+        width: 0;
+        left: -250px;
+        position: absolute;
+        height: 100%;
+    }
+}
+
 /* ========================================= 
 ============== SearchBar ===================
 ========================================= */
@@ -74,6 +85,10 @@
     color: white;
     padding: 0.8rem;
     box-shadow: 0px 3px 4px -2px rgba(0, 0, 0, 0.5);
+}
+
+.searchbar__leftmenu {
+    display: none;
 }
 
 .searchbar__flexbox {
@@ -157,6 +172,11 @@
     font-size: 22px;
 }
 
+.searchbar__icons--leftmenu {
+    color: white;
+    font-size: 26px;
+}
+
 .searchbar__dropdown {
     position: absolute;
     top: 40px;
@@ -203,6 +223,22 @@
     left: 30px;
 }
 
+@media screen and (max-width: 1300px) {
+    .searchbar__flexbox {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .searchbar__leftmenu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+}
+
 /* ========================================= 
 ================ products ==================
 ========================================= */
@@ -234,7 +270,7 @@
 .products__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-rows: repeat(12, 1fr);
     grid-gap: 50px 30px;
 }
 
@@ -247,7 +283,7 @@
 }
 
 .products__card:hover {
-    outline: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .products__image {
@@ -287,3 +323,74 @@
     background-color: #862c1a;
     color: white;
 }
+
+@media screen and (max-width: 1700px) {
+    .products__image {
+        padding: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .products {
+        padding: 2rem;
+    }
+
+    .products__header {
+        font-size: 1.4rem;
+    }
+    
+    .products__header--secondary {
+        font-size: 0.7rem;
+    }
+
+    .products__image {
+        padding: 1.4rem;
+    }
+
+    .products__grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(16, 1fr);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .products__image {
+        padding: 1rem;
+    }
+
+    .products__grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(16, 1fr);
+    }
+
+    .products__text {
+        font-size: 0.8rem;
+    }
+    
+    .products__text--primary {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .products__grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(24, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .products__header {
+        font-size: 1.2rem;
+    }
+    
+    .products__header--secondary {
+        font-size: 0.6rem;
+    }
+
+    .products__grid {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(48, 1fr);
+    }
+}
+

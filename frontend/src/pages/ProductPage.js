@@ -1,14 +1,19 @@
+import { useRef } from 'react';
+
 import './ProductPage.css';
 import SearchBar from '../features/products/SearchBar';
 import LeftMeun from '../features/products/LeftMeun';
 import Products from '../features/products/Products';
 
 const ProductPage = () => {
+
+    const leftMenuRef = useRef();
+
     return (
         <div className='productpage'>
-            <LeftMeun />
+            <LeftMeun leftMenuRef={leftMenuRef} />
             <div className='productpage__container'>
-                <SearchBar />
+                <SearchBar leftMenuRef={leftMenuRef} />
                 <Products />
             </div>
         </div>

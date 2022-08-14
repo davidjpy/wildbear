@@ -1,12 +1,13 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { FaSearch, FaTimes } from 'react-icons/fa';
+import { AiOutlineMenuUnfold } from 'react-icons/ai';
 import { HiMenu } from 'react-icons/hi';
 
-const SearchBar = () => {
+const SearchBar = ({ leftMenuRef }) => {
 
     const inputRef = useRef();
+    const [openLeftMenu, setOpenLeftMenu] = useState(false);
     const [search, setSearch] = useState('');
-    // const [suggestionMode, setSuggestionMode] = useState(true);
     const [listExpand, setListExpand] = useState(false);
 
     const handleSearchChange = (e) => {
@@ -18,19 +19,48 @@ const SearchBar = () => {
         inputRef.current.focus();
     }
 
-    // const toggleSuggestionMode = () => {
-    //     setSuggestionMode(!suggestionMode);
-    // }
-
     const toggleListExpand = () => {
         setListExpand(!listExpand);
     }
 
+    const toggleLeftMenu = () => {
+        setOpenLeftMenu(!openLeftMenu);
+    }
+
+    useEffect(() => {
+        if (openLeftMenu) {
+            leftMenuRef.current.style.left = '-250px';
+            leftMenuRef.current.style.width = '0';
+        } else if (!openLeftMenu && window.innerWidth < 1000) {
+            leftMenuRef.current.style.left = '0';
+            leftMenuRef.current.style.width = '250px';
+        }
+    }, [openLeftMenu]);
+
+    useEffect(() => {
+        function hideLeftmenu () {
+            if (window.innerWidth < 1000) {
+                leftMenuRef.current.style.left = '-250px';
+                leftMenuRef.current.style.width = '0';
+            } else {
+                leftMenuRef.current.style.left = '0';
+                leftMenuRef.current.style.width = '250px';
+            }
+        }
+        window.addEventListener('resize', hideLeftmenu);
+        return () => {
+            window.removeEventListener('resize', hideLeftmenu);
+        }
+    });
+
     return (
         <div className='searchbar'>
+            <div onClick={toggleLeftMenu} className='searchbar__leftmenu'>
+                <AiOutlineMenuUnfold className='searchbar__icons searchbar__icons--leftmenu' />
+            </div>
             <div className='searchbar__flexbox'>
                 <div onClick={toggleListExpand} className='searchbar__label searchbar__label--start'>
-                    <HiMenu className=' searchbar__icons searchbar__icons--menu' />
+                    <HiMenu className='searchbar__icons searchbar__icons--menu' />
                 </div>
                 <div className={listExpand ? 'searchbar__dropdown searchbar__dropdown--active' : 'searchbar__dropdown'}>
                     <div className='searchbar__list'>

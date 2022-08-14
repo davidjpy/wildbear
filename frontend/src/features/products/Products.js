@@ -41,7 +41,7 @@ const ProductsExcerpt = ({ category }) => {
                 <div className='products__divider' />
             </div>
             <div className='products__grid'>
-                {productQuery.slice(0, 40).map((item) => {
+                {productQuery.slice(0, 48).map((item) => {
                     return (
                         <div key={item.id} className='products__card'>
                             <div>
