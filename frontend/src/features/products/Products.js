@@ -3,18 +3,19 @@ import { useParams } from 'react-router-dom';
 
 import { useGetProductsQuery, selectAllProducts } from './productsSlice';
 
-const Products = () => {
+const Products = ({ productsRef }) => {
 
     const { category } = useParams();
 
     return (
         <ProductsExcerpt
             category={category}
+            productsRef={productsRef}
         />
     );
 }
 
-const ProductsExcerpt = ({ category }) => {
+const ProductsExcerpt = ({ category, productsRef }) => {
 
     const {
         isLoading,
@@ -32,10 +33,10 @@ const ProductsExcerpt = ({ category }) => {
         productQuery = productData.filter(item => item.category === category);
     }
 
-    console.log(productQuery)
+    // console.log(productQuery)
 
     return (
-        <div className='products'>
+        <div ref={productsRef} className='products'>
             <div className='products__header-wrapper'>
                 <h1 className='products__header'>{category === 'all' ? 'All Categories' : category.replaceAll('-', ' ')} <span className='products__header products__header--secondary'>({productQuery.length} products available)</span></h1>
                 <div className='products__divider' />

@@ -114,6 +114,7 @@ const Slider = () => {
             slidesRef.current.style.transform = `translate3d(-${slidesRef.current.clientWidth}px, 0, 0)`;
         }
         window.addEventListener('resize', handleResize);
+        
         return () => {
             window.removeEventListener('resize', handleResize);
         }

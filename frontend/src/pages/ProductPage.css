@@ -14,7 +14,7 @@
     position: relative;
     width: 250px;
     background-color: rgb(42, 46, 63);
-    transition: all 0.4s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .leftmenu__wrapper {
@@ -67,7 +67,7 @@
     .leftmenu {
         width: 0;
         left: -250px;
-        position: absolute;
+        position: fixed;
         height: 100%;
     }
 }
@@ -245,6 +245,7 @@
 
 .products {
     padding: 4rem;
+    transition: background-color 0.4s ease-in-out;
 }
 
 .products__header-wrapper {
