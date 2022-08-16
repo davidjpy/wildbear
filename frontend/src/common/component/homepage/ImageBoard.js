@@ -5,7 +5,7 @@ const ImageBoard = ({ handleScroll }) => {
     const navigate = useNavigate();
 
     const navigateProductsPage = () => {
-        navigate('/products/all');
+        navigate('/products/all/page=1');
     }
 
     return (

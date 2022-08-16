@@ -4,33 +4,34 @@ import { useNavigate } from 'react-router-dom';
 const LeftMeun = ({ leftMenuRef }) => {
 
     const navigate = useNavigate();
+    const urlSuffix = '/page=1'
     const menuOptions = [
         {
             title: 'EXPLORE',
-            subTitle: [{ header: 'All Categories', nav: 'all' }]
+            subTitle: [{ header: 'All Categories', nav: `all${urlSuffix}` }]
         },
         {
             title: 'SHELTERS',
             subTitle: [
-                { header: 'Tents', nav: 'tents' },
-                { header: 'Sleeping Bags', nav: 'sleeping-bags-and-accessories' },
-                { header: 'Furniture', nav: 'camp-furniture' },
-                { header: 'Kitchen', nav: 'camp-kitchen' }
+                { header: 'Tents', nav: `tents${urlSuffix}` },
+                { header: 'Sleeping Bags', nav: `sleeping-bags-and-accessories${urlSuffix}` },
+                { header: 'Furniture', nav: `camp-furniture${urlSuffix}` },
+                { header: 'Kitchen', nav: `camp-kitchen${urlSuffix}` }
             ]
         },
         {
             title: 'WEARS',
             subTitle: [
-                { header: 'Clouthes', nav: 'hiking-clothing' },
-                { header: 'Footwears', nav: 'hiking-footwear' },
-                { header: 'Backpacks', nav: 'hiking-backpacks' }
+                { header: 'Clouthes', nav: `hiking-clothing${urlSuffix}` },
+                { header: 'Footwears', nav: `hiking-footwear${urlSuffix}` },
+                { header: 'Backpacks', nav: `hiking-backpacks${urlSuffix}` }
             ]
         },
         {
             title: 'TOOLS & NECESSITIES',
             subTitle: [
-                { header: 'Gadgets', nav: 'gadgets' },
-                { header: 'Treatment', nav: 'water-bottles-and-treatment' }
+                { header: 'Gadgets', nav: `gadgets${urlSuffix}` },
+                { header: 'Treatment', nav: `water-bottles-and-treatment${urlSuffix}` }
             ]
         }
     ];
