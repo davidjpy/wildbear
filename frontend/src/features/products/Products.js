@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { useGetProductsQuery, selectAllProducts } from './productsSlice';
+import { useGetProductsQuery, selectAllProducts, selectProductByCategory } from './productsSlice';
 
 const Products = ({ productsRef }) => {
 
@@ -19,6 +19,8 @@ const Products = ({ productsRef }) => {
 
 const ProductsExcerpt = ({ productsRef, category, pagenum }) => {
 
+    // const productDataByCategory = useSelector(state => selectProductByCategory(state, category));
+    // console.log(productDataByCategory);
     const [test, setTest] = useState(false);
 
     const {
@@ -29,13 +31,22 @@ const ProductsExcerpt = ({ productsRef, category, pagenum }) => {
     } = useGetProductsQuery();
 
     const productData = useSelector(selectAllProducts);
-    let productQuery;
 
-    if (category === 'all') {
-        productQuery = productData;
-    } else {
-        productQuery = productData.filter(item => item.category === category);
+    const shuffleArray = (array) => {
+
+        const dupArray = array.slice();
+
+        for (let i = dupArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [dupArray[i], dupArray[j]] = [dupArray[j], dupArray[i]];
+        }
+
+        return dupArray;
     }
+
+    const productQuery = useMemo(() =>
+        category === 'all' ? shuffleArray(productData) : productData.filter(item => item.category === category)
+        , [productData, category]);
 
     const pageProducts = useMemo(() => {
         let pageItems = [];
@@ -51,23 +62,15 @@ const ProductsExcerpt = ({ productsRef, category, pagenum }) => {
                 && accu.length === Math.floor(productQuery.length / 48)) {
                 accu.push(pageItems);
             }
-            
+
             return accu;
         }, []);
 
         return PageItems;
     }, [productQuery]);
 
-    console.log(test)
-
-    const logger = () => {
-        setTest(!test)
-    }
-
     return (
         <div ref={productsRef} className='products'>
-            <button onClick={logger}>logger</button>
-            <p>{String(test)}</p>
             <div className='products__header-wrapper'>
                 <h1 className='products__header'>{category === 'all' ? 'All Categories' : category.replaceAll('-', ' ')} <span className='products__header products__header--secondary'>({productQuery.length} products available)</span></h1>
                 <div className='products__divider' />

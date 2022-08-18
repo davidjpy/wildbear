@@ -35,3 +35,8 @@ export const {
     selectAll: selectAllProducts,
     selectById: selectProductsById
 } = productsAdapter.getSelectors(state => selectProductsData(state) ?? initialState);
+
+export const selectProductByCategory = createSelector(
+    selectAllProducts,
+    (productsResult, category) => productsResult.filter(item => item.category === category)
+);

@@ -49,6 +49,7 @@
 
 .leftmenu__text--body {
     color: white;
+    margin: 5px 0;
     padding: 0.6rem 1rem;
     border-radius: 10px;
     cursor: pointer;
