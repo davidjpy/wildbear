@@ -1,9 +1,10 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const LeftMeun = ({ leftMenuRef }) => {
+const LeftMeun = ({ leftMenuRef, location }) => {
 
     const navigate = useNavigate();
+    const url = location.pathname
     const urlSuffix = '/page=1'
     const menuOptions = [
         {
@@ -38,10 +39,21 @@ const LeftMeun = ({ leftMenuRef }) => {
 
     const [active, setActive] = useState('All Categories');
 
-    const handleSetActive = (header, nav) => {
-        setActive(header);
+    const handleSetActive = (nav) => {
         navigate(`/products/${nav}`);
     }
+
+    const handleUpdateActive = () => {
+        const targetUrl = url.substring(url.indexOf('/', 1) + 1, url.lastIndexOf('/')) + urlSuffix;
+        const parent = menuOptions.find(item => item.subTitle.find(subItem => subItem.nav === targetUrl));
+        const target = parent.subTitle.find(item => item.nav === targetUrl);
+
+        return target.header;
+    } 
+
+    useEffect(() => {
+        setActive(handleUpdateActive());
+    }, [location]);
 
     return (
         <div ref={leftMenuRef} className='leftmenu'>
@@ -56,7 +68,7 @@ const LeftMeun = ({ leftMenuRef }) => {
                                 <p className='leftmenu__text leftmenu__text--subtitle'>{item.title}</p>
                                 {item.subTitle.map((subItem) => {
                                     return (
-                                        <p key={subItem.header} onClick={() => handleSetActive(subItem.header, subItem.nav)}
+                                        <p key={subItem.header} onClick={() => handleSetActive(subItem.nav)}
                                             className={active === subItem.header
                                                 ? 'leftmenu__text leftmenu__text--body leftmenu__text--active'
                                                 : 'leftmenu__text leftmenu__text--body'}>
