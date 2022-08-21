@@ -3,10 +3,9 @@ import { FaSearch, FaTimes } from 'react-icons/fa';
 import { AiOutlineMenuUnfold } from 'react-icons/ai';
 import { HiMenu } from 'react-icons/hi';
 
-const SearchBar = ({ leftMenuRef, productsRef, handleOpenLeftMenu, handleCloseLeftMenu }) => {
+const SearchBar = ({ leftMenuRef, handleOpenLeftMenu, handleCloseLeftMenu, search, setSearch }) => {
 
     const inputRef = useRef();
-    const [search, setSearch] = useState('');
     const [listExpand, setListExpand] = useState(false);
 
     const handleSearchChange = (e) => {

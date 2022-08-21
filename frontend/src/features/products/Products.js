@@ -1,6 +1,6 @@
 import { useMemo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import {
     useGetProductsQuery,
@@ -9,21 +9,18 @@ import {
     updatePaginationRange
 } from './productsSlice';
 
-const Products = ({ productsRef, location }) => {
-
-    const { pagenum, category } = useParams();
+const Products = ({ productsRef, location, search }) => {
 
     return (
         <ProductsExcerpt
             productsRef={productsRef}
-            category={category}
-            pagenum={pagenum}
             location={location}
+            search={search}
         />
     );
 }
 
-const ProductsExcerpt = ({ productsRef, category, pagenum, location }) => {
+const ProductsExcerpt = ({ productsRef, location, search }) => {
 
     const {
         isLoading,
@@ -34,6 +31,7 @@ const ProductsExcerpt = ({ productsRef, category, pagenum, location }) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { pagenum, category } = useParams();
     const productData = useSelector(selectAllProducts);
     const paginationRange = useSelector(selectPaginationRange);
 
@@ -59,18 +57,20 @@ const ProductsExcerpt = ({ productsRef, category, pagenum, location }) => {
         category === 'all' ? shuffleArray(productData) : productData.filter(item => item.category === category)
         , [productData, category]);
 
+    const handleFilterProducts = productQuery.filter(item => item.title.toLowerCase().includes(search.toLowerCase()));
+
     const pageProducts = useMemo(() => {
         let pageItems = [];
 
-        const PageItems = productQuery.reduce((accu, curr) => {
+        const PageItems = handleFilterProducts.reduce((accu, curr) => {
             pageItems.push(curr);
             if (pageItems.length === 48) {
                 accu.push(pageItems);
                 pageItems = [];
             }
 
-            if (pageItems.length === productQuery.length % 48
-                && accu.length === Math.floor(productQuery.length / 48)) {
+            if (pageItems.length === handleFilterProducts.length % 48
+                && accu.length === Math.floor(handleFilterProducts.length / 48)) {
                 accu.push(pageItems);
             }
 
@@ -78,63 +78,71 @@ const ProductsExcerpt = ({ productsRef, category, pagenum, location }) => {
         }, []);
 
         return PageItems;
-    }, [productQuery]);
+    }, [handleFilterProducts]);
 
     const paginations = useMemo(() => [...Array(pageProducts.length).keys()], [pageProducts]);
 
     const handlePagination = (page) => {
-        if (page > 0 && page - 1 < paginations.length) {
+        if (page > 0 && page - 1 < pageProducts.length) {
             navigate(`/products/${category}/page=${page}`);
         }
     }
 
     useEffect(() => {
-        dispatch(updatePaginationRange({ pageNum: Number(pagenum), dataLength: paginations.length}));
+        dispatch(updatePaginationRange({ pageNum: Number(pagenum), dataLength: pageProducts.length }));
         handleScroll();
-    }, [location, pagenum, paginations, dispatch]);
+    }, [location, pagenum, pageProducts, dispatch]);
 
     return (
         <div ref={productsRef} className='products'>
             <div className='products__header-wrapper'>
-                <h1 className='products__header'>{category === 'all' ? 'All Categories' : category.replaceAll('-', ' ')} <span className='products__header products__header--secondary'>({productQuery.length} products available)</span></h1>
+                <h1 className='products__header'>{category === 'all' ? 'All Categories' : category.replaceAll('-', ' ')} <span className='products__header products__header--secondary'>({handleFilterProducts.length} products available)</span></h1>
                 <div className='products__divider' />
             </div>
-            <div className='products__grid'>
-                {pageProducts[pagenum - 1]?.map((item) => {
-                    return (
-                        <div key={item.id} className='products__card'>
-                            <div>
-                                <img src={item.image} alt={item.title} loading='lazy' className='products__image' />
-                            </div>
-                            <div className='products__descriptions'>
-                                <p className='products__text products__text--primary'>{item.brand}</p>
-                                <p className='products__text products__text--secondary'>{item.title.replace(`${item.brand}`, '')}</p>
-                                <p className='products__text products__text--body'>$ {item.price}</p>
-                            </div>
-                        </div>
-                    );
-                })}
-            </div>
-            <div className='products__pagination'>
-                <button onClick={() => handlePagination(Number(pagenum) - 1)} className='products__button'>{'<<'}</button>
-                {Number(pagenum) > (paginationRange[1] - paginationRange[0] - 1)
-                    && <button onClick={() => handlePagination(1)} className='products__button'>1</button>}
-                {Number(pagenum) > (paginationRange[1] - paginationRange[0])
-                    && <button className='products__button products__button--sign'>...</button>}
-                {paginations.slice(paginationRange[0], paginationRange[1]).map((item) => {
-                    return (
-                        <button onClick={() => handlePagination(item + 1)} key={item}
-                            className={item + 1 === Number(pagenum) ? 'products__button products__button--active' : 'products__button'}>
-                            {item + 1}
-                        </button>
-                    );
-                })}
-                {Number(pagenum) < paginations.length - (paginationRange[1] - paginationRange[0] - 1)
-                    && <button className='products__button products__button--sign'>...</button>}
-                {Number(pagenum) < paginations.length - (paginationRange[1] - paginationRange[0] - 2)
-                    && <button onClick={() => handlePagination(paginations.length)} className='products__button'>{paginations.length}</button>}
-                <button onClick={() => handlePagination(Number(pagenum) + 1)} className='products__button'>{'>>'}</button>
-            </div>
+            {pageProducts.length !== 0 ? (
+                <>
+                    <div className='products__grid'>
+                        {pageProducts[pagenum - 1]?.map((item) => {
+                            return (
+                                <div key={item.id} className='products__card'>
+                                    <div>
+                                        <img src={item.image} alt={item.title} loading='lazy' className='products__image' />
+                                    </div>
+                                    <div className='products__descriptions'>
+                                        <p className='products__text products__text--primary'>{item.brand}</p>
+                                        <p className='products__text products__text--secondary'>{item.title.replace(`${item.brand}`, '')}</p>
+                                        <p className='products__text products__text--body'>$ {item.price}</p>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div className='products__pagination'>
+                        <button onClick={() => handlePagination(Number(pagenum) - 1)} className='products__button'>{'<<'}</button>
+                        {Number(pagenum) > (paginationRange[1] - paginationRange[0] - 1)
+                            && <button onClick={() => handlePagination(1)} className='products__button'>1</button>}
+                        {Number(pagenum) > (paginationRange[1] - paginationRange[0])
+                            && <button className='products__button products__button--sign'>...</button>}
+                        {paginations.slice(paginationRange[0], paginationRange[1]).map((item) => {
+                            return (
+                                <button onClick={() => handlePagination(item + 1)} key={item}
+                                    className={item + 1 === Number(pagenum) ? 'products__button products__button--active' : 'products__button'}>
+                                    {item + 1}
+                                </button>
+                            );
+                        })}
+                        {Number(pagenum) < pageProducts.length - (paginationRange[1] - paginationRange[0] - 1)
+                            && <button className='products__button products__button--sign'>...</button>}
+                        {Number(pagenum) < pageProducts.length - (paginationRange[1] - paginationRange[0] - 2)
+                            && <button onClick={() => handlePagination(pageProducts.length)} className='products__button'>{pageProducts.length}</button>}
+                        <button onClick={() => handlePagination(Number(pagenum) + 1)} className='products__button'>{'>>'}</button>
+                    </div>
+                </>
+            ) : (
+                <p>
+                    No Products Found
+                </p>
+            )}
         </div>
     );
 }

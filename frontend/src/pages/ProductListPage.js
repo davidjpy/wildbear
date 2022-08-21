@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams, useLocation } from 'react-router-dom';
 
@@ -14,6 +14,7 @@ const ProductListPage = () => {
     const location = useLocation();
     const dispatch = useDispatch();
     const { category } = useParams();
+    const [search, setSearch] = useState('');
 
     const handleScroll = () => {
         window.scrollTo({
@@ -57,13 +58,15 @@ const ProductListPage = () => {
             <div className='productlistpage__container'>
                 <SearchBar
                     leftMenuRef={leftMenuRef}
-                    productsRef={productsRef}
                     handleOpenLeftMenu={handleOpenLeftMenu}
                     handleCloseLeftMenu={handleCloseLeftMenu}
+                    search={search}
+                    setSearch={setSearch}
                 />
                 <Products 
                     productsRef={productsRef}
                     location={location}
+                    search={search}
                 />
             </div>
         </div>
