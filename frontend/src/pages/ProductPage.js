@@ -1,6 +1,9 @@
+import './ProductPage.css';
+import SingleProduct from '../features/products/SingleProduct';
+
 const ProductPage = () => {
     return (
-        <></>
+        <SingleProduct />
     );
 }
 

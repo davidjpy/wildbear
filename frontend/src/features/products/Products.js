@@ -1,6 +1,7 @@
 import { useMemo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
+import { TiWarning } from 'react-icons/ti';
 
 import {
     useGetProductsQuery,
@@ -35,6 +36,11 @@ const ProductsExcerpt = ({ productsRef, location, search }) => {
     const productData = useSelector(selectAllProducts);
     const paginationRange = useSelector(selectPaginationRange);
 
+    const handleNavigateSingleProduct = (id) => {
+        sessionStorage.setItem("scrollPosition", window.pageYOffset);
+        navigate(`/product-details/item=${id}`);
+    }
+
     const handleScroll = () => {
         window.scrollTo({
             top: 0,
@@ -42,19 +48,8 @@ const ProductsExcerpt = ({ productsRef, location, search }) => {
         });
     }
 
-    const shuffleArray = (array) => {
-        const dupArray = array.slice();
-
-        for (let i = dupArray.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [dupArray[i], dupArray[j]] = [dupArray[j], dupArray[i]];
-        }
-
-        return dupArray;
-    }
-
     const productQuery = useMemo(() =>
-        category === 'all' ? shuffleArray(productData) : productData.filter(item => item.category === category)
+        category === 'all' ? productData.sort((a, b) => b.price - a.price) : productData.filter(item => item.category === category)
         , [productData, category]);
 
     const handleFilterProducts = productQuery.filter(item => item.title.toLowerCase().includes(search.toLowerCase()));
@@ -93,18 +88,40 @@ const ProductsExcerpt = ({ productsRef, location, search }) => {
         handleScroll();
     }, [location, pagenum, pageProducts, dispatch]);
 
+    useEffect(() => {
+        const scrollPosition = sessionStorage.getItem('scrollPosition');
+        if (scrollPosition && isSuccess) {
+            setTimeout(() => {
+                window.scrollTo({
+                    top: scrollPosition,
+                    left: 0
+                });
+                sessionStorage.removeItem("scrollPosition");
+            }, 0);
+        }
+    }, [isSuccess]);
+
     return (
         <div ref={productsRef} className='products'>
             <div className='products__header-wrapper'>
                 <h1 className='products__header'>{category === 'all' ? 'All Categories' : category.replaceAll('-', ' ')} <span className='products__header products__header--secondary'>({handleFilterProducts.length} products available)</span></h1>
                 <div className='products__divider' />
             </div>
-            {pageProducts.length !== 0 ? (
+            {isLoading ? (
+                <p>
+                    Loading
+                </p>
+            ) : (pageProducts.length === 0 ? (
+                <div className='products__warning'>
+                    <TiWarning size={25} style={{ color: 'rgb(53, 53, 53)' }} />
+                    <p>No Products Found</p>
+                </div>
+            ) : (
                 <>
                     <div className='products__grid'>
                         {pageProducts[pagenum - 1]?.map((item) => {
                             return (
-                                <div key={item.id} className='products__card'>
+                                <div key={item.id} onClick={() => handleNavigateSingleProduct(item.id)} className='products__card'>
                                     <div>
                                         <img src={item.image} alt={item.title} loading='lazy' className='products__image' />
                                     </div>
@@ -138,11 +155,7 @@ const ProductsExcerpt = ({ productsRef, location, search }) => {
                         <button onClick={() => handlePagination(Number(pagenum) + 1)} className='products__button'>{'>>'}</button>
                     </div>
                 </>
-            ) : (
-                <p>
-                    No Products Found
-                </p>
-            )}
+            ))}
         </div>
     );
 }

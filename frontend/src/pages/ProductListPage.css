@@ -240,7 +240,7 @@
 }
 
 /* ========================================= 
-================ products ==================
+================ Products ==================
 ========================================= */
 
 .products {
@@ -369,6 +369,13 @@
 
 .products__button--sign:hover {
     background-color: inherit;
+}
+
+.products__warning {
+    display: flex;
+    gap: 8px;
+    font-size: 1.2rem;
+    align-items: center;
 }
 
 @media screen and (max-width: 1700px) {
