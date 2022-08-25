@@ -10,15 +10,35 @@
 
 .nav__header {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
     background-color: rgb(27, 27, 27);
-    padding: 0.8rem;
+    padding: 1rem 2rem 1rem 1rem;
     max-height: 40px;
 }
 
 .nav__title {
-    color: #fff;
+    color: white;
     font-style: italic;
+}
+
+.nav__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0.25rem;
+    transition: all 0.1s ease-in-out;
+}
+
+.nav__icon-wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+}
+
+.nav__icon {
+    color: white;
+    font-size: 22px;
 }
 
 .nav__tabs {
@@ -30,7 +50,7 @@
 
 .nav__tab {
     height: 100%;
-    width: 20%;
+    width: 25%;
 }
 
 .nav__tab--inactive:hover {

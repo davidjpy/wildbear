@@ -39,7 +39,8 @@ export const {
 
 /* RTK for managing global state */
 const initialState = {
-    paginationRange: [0, 3]
+    paginationRange: [0, 3],
+    cartItem: []
 }
 
 const productsSlice = createSlice({
@@ -71,12 +72,25 @@ const productsSlice = createSlice({
                 state.paginationRange[0] = 0;
                 state.paginationRange[1] = 3;
             }
+        },
+        updateCartItem: {
+            reducer(state, action) { 
+                console.log(action.payload)
+                state.cartItem = [...state.cartItem, action.payload];
+
+                console.log(state.cartItem)
+            }
         }
     }
 });
 
 export const selectPaginationRange = (state) => state.products.paginationRange;
+export const selectCartItem = (state) => state.products.cartItem;
 
-export const { updatePaginationRange, resetPaginationRange } = productsSlice.actions;
+export const { 
+    updatePaginationRange, 
+    resetPaginationRange, 
+    updateCartItem 
+} = productsSlice.actions;
 
 export default productsSlice.reducer;

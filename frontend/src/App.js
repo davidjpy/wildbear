@@ -5,9 +5,9 @@ const Layout = lazy(() => import('./common/layout/Layout'));
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ProductListPage = lazy(() => import('./pages/ProductListPage'));
 const ProductPage = lazy(() => import('./pages/ProductPage'));
-const HotSalesPage = lazy(() => import('./pages/HotSalesPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+const CartPage = lazy(() => import('./pages/CartPage'));
 
 function App() {
     return (
@@ -23,7 +23,7 @@ function App() {
                     <Route path='product-details' element={<ProductPage />}>
                         <Route path='item=:id' element={<ProductPage />} />
                     </Route>
-                    <Route path='hotsales' element={<HotSalesPage />} />
+                    <Route path='cart' element={<CartPage />} />
                     <Route path='about' element={<AboutPage />} />
                     <Route path='contact' element={<ContactPage />} />
                 </Route>

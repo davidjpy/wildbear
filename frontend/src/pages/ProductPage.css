@@ -3,7 +3,7 @@
 ========================================= */
 
 .singleproduct {
-    width: 70%;
+    width: 60%;
     margin: auto;
 }
 
@@ -57,11 +57,12 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-right: 6rem;
 }
 
 .singleproduct__icon {
     margin-right: 8px;
+    width: 25px;
+    height: 100%;
 }
 
 .singleproduct__title-wrapper {
@@ -224,7 +225,7 @@
     background-color: rgb(189, 189, 189);
 }
 
-.singleproduct__button--long {
+.singleproduct__button--flat {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -238,11 +239,11 @@
     color: white;
 }
 
-.singleproduct__button--long:hover {
+.singleproduct__button--flat:hover {
     background-color: rgba(42, 46, 63, 0.95);
 }
 
-.singleproduct__button--long:active {
+.singleproduct__button--flat:active {
     background-color: rgb(32, 35, 51);
 }
 
@@ -264,4 +265,82 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.singleproduct__feature {
+    padding: 2rem 0 4rem 0;
+}
+
+.singleproduct__text--feature-title {
+    font-size: 1.2rem;
+    padding: 0.8rem 0.8rem 0.8rem 2.6rem;
+    border-radius: 5px 5px 0 0;
+    background-color: rgb(134, 44, 26);
+    color: white;
+}
+
+.singleproduct__list {
+    background-color: rgba(243, 243, 243, 0.8);
+    list-style: inside;
+}
+
+.singleproduct__text--list-item {
+    padding: 0.8rem 0.8rem 0.8rem 2.6rem;
+    text-indent: -1.4rem;
+}
+
+.singleproduct__text--list-item:nth-child(even) {
+    background-color: rgb(207, 207, 207);
+}
+
+@media screen and (max-width: 1600px) {
+    .singleproduct {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .singleproduct {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .singleproduct {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .singleproduct {
+        width: 100%;
+    }
+
+    .singleproduct__image {
+        padding: 2rem;
+    }
+
+    .singleproduct__descriptions {
+        padding: 2rem 2rem 2rem 3rem;
+    }
+
+    .singleproduct__feature {
+        padding: 2rem 2rem 4rem 2rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .singleproduct__info {
+        display: block;
+    }
+
+    .singleproduct__image-wrapper {
+        display: block;
+        width: 100%;
+    }
+
+    .singleproduct__descriptions {
+        padding-top: 0;
+        width: 100%;
+    }
 }
