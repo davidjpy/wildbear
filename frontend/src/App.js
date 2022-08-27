@@ -1,6 +1,14 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+/* import Layout from './common/layout/Layout';
+import HomePage from './pages/HomePage';
+import ProductListPage from './pages/ProductListPage';
+import ProductPage from './pages/ProductPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import CartPage from './pages/CartPage'; */
+
 const Layout = lazy(() => import('./common/layout/Layout'));
 const HomePage = lazy(() => import('./pages/HomePage'));
 const ProductListPage = lazy(() => import('./pages/ProductListPage'));
@@ -28,7 +36,7 @@ function App() {
                     <Route path='contact' element={<ContactPage />} />
                 </Route>
             </Routes>
-        </Suspense>
+       </Suspense>
     );
 }
 

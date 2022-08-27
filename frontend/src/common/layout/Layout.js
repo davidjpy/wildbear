@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 import './Layout.css';
 import Nav from './Nav';

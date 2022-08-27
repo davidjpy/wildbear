@@ -247,6 +247,15 @@
     background-color: rgb(32, 35, 51);
 }
 
+.singleproduct__button--disabled {
+    background-color: gray;
+}
+
+.singleproduct__button--disabled:hover {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
 .singleproduct__input {
     height: 30px;
     flex-grow: 2;    

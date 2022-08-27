@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react';
 
 export const useClickOutside = (handlerFunction) => {
 
@@ -17,5 +17,5 @@ export const useClickOutside = (handlerFunction) => {
         }
     });
 
-    return node
+    return node;
 }

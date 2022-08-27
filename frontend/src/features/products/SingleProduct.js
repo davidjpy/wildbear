@@ -4,7 +4,15 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { AiFillHome, AiFillRead } from 'react-icons/ai';
 import { MdRateReview } from 'react-icons/md';
 
-import { useGetProductsQuery, selectProductsById, updateCartItem } from './productsSlice';
+import {
+    useGetProductsQuery,
+    selectProductsById,
+    updateCartItem
+} from './productsSlice';
+
+import {
+    updateNotification
+} from '../notification/notificationSlice';
 
 const SingleProduct = () => {
 
@@ -21,17 +29,18 @@ const SingleProduct = () => {
     const ratingRef = useRef();
     const productDataById = useSelector((state) => selectProductsById(state, id));
     const [count, setCount] = useState(1);
+    const [disabledCart, setDisabledCart] = useState(false);
 
     const productFeatures = useMemo(() => {
         let arrays = [];
         let item = '';
-        
+
         if (productDataById) {
             const features = productDataById.feature.replace(/[[]?]/g, '').replaceAll(/[�]/g, '™ ');
             for (let i = 0; i < features.length; i++) {
                 item += features[i];
 
-                if ((features[i] === `'` || features[i] === `"`) && features[i+1] === ',') {
+                if ((features[i] === `'` || features[i] === `"`) && features[i + 1] === ',') {
                     item = item.replaceAll(`"`, `'`);
                     arrays.push(item.substring(item.indexOf(`'`) + 1, item.lastIndexOf(`'`)));
                     item = '';
@@ -61,7 +70,7 @@ const SingleProduct = () => {
             setCount(prev => Number(prev) - 1);
         }
     }
-    
+
     const handleUpdateCount = (e) => {
         if (!e.target.value < 1) {
             setCount(e.target.value);
@@ -71,7 +80,22 @@ const SingleProduct = () => {
     }
 
     const handleAddToCart = () => {
-        dispatch(updateCartItem({...productDataById, quantity: count}));
+        dispatch(updateCartItem({ ...productDataById, quantity: count }));
+        setDisabledCart(true);
+        setTimeout(() => {
+            setDisabledCart(false);
+        }, 5000);
+        setCount(1);
+        dispatch(updateNotification({
+            message: {
+                title: `Action Success`,
+                body: `You have added the item #${productDataById.id} ${productDataById.title} x ${count} to your cart`
+            },
+            position: {
+                height: '12%',
+                right: '20px'
+            }
+        }));
     }
 
     useEffect(() => {
@@ -119,7 +143,7 @@ const SingleProduct = () => {
                                 </div>
                                 <div className='singleproduct__rating-wrapper'>
                                     <p className='singleproduct__text singleproduct__text--subtitle'>
-{/*                                         <MdRateReview className='singleproduct__icon' /> */}
+                                        {/*                                         <MdRateReview className='singleproduct__icon' /> */}
                                         Rating
                                     </p>
                                     <div className='singleproduct__rating'>
@@ -138,7 +162,7 @@ const SingleProduct = () => {
                                 </div>
                                 <div className='singleproduct__body-wrapper'>
                                     <p className='singleproduct__text singleproduct__text--subtitle'>
-{/*                                         <AiFillRead className='singleproduct__icon' /> */}
+                                        {/*                                         <AiFillRead className='singleproduct__icon' /> */}
                                         Description
                                     </p>
                                     <p className='singleproduct__text singleproduct__text--body'>{productDataById?.description}</p>
@@ -151,8 +175,14 @@ const SingleProduct = () => {
                                         <input className='singleproduct__input' min='0' value={count} type='number' onChange={(e) => handleUpdateCount(e)} />
                                         <button onClick={handleIncrement} className='singleproduct__button singleproduct__button--increment'>+</button>
                                     </div>
-                                    <button onClick={handleAddToCart} className='singleproduct__button singleproduct__button--flat'>ADD TO CART</button>
-                                    <button className='singleproduct__button singleproduct__button--flat'>ADD TO WISHLIST</button>
+                                    <button onClick={handleAddToCart} disabled={disabledCart}
+                                        className={disabledCart
+                                            ? 'singleproduct__button singleproduct__button--flat singleproduct__button--disabled'
+                                            : 'singleproduct__button singleproduct__button--flat'}>
+                                        ADD TO CART
+                                    </button>
+                                    <button
+                                        className='singleproduct__button singleproduct__button--flat'>ADD TO WISHLIST</button>
                                 </div>
                             </div>
                         </div>

@@ -121,21 +121,6 @@ const Slider = () => {
     });
 
     return (
-        <ImageSet
-            slidesRef={slidesRef}
-            imageList={imageList}
-            counter={counter}
-            setCounter={setCounter}
-            handlePrev={handlePrev}
-            handleNext={handleNext}
-            handleByIndex={handleByIndex}
-            currentWidthChange={currentWidthChange}
-        />
-    );
-}
-
-const ImageSet = ({ slidesRef, imageList, counter, handlePrev, handleNext, handleByIndex, currentWidthChange }) => {
-    return (
         <>
             <section className='slider'>
                 <div className='slider__canvas'>

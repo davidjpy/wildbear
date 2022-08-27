@@ -12,17 +12,6 @@ import {
 
 const Products = ({ productsRef, location, search }) => {
 
-    return (
-        <ProductsExcerpt
-            productsRef={productsRef}
-            location={location}
-            search={search}
-        />
-    );
-}
-
-const ProductsExcerpt = ({ productsRef, location, search }) => {
-
     const {
         isLoading,
         isSuccess,

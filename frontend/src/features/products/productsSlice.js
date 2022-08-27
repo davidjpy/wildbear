@@ -64,7 +64,7 @@ const productsSlice = createSlice({
                 } else {
                     state.paginationRange[0] = pageNum - 2;
                     state.paginationRange[1] = pageNum + 1;
-                } 
+                }
             }
         },
         resetPaginationRange: {
@@ -74,11 +74,24 @@ const productsSlice = createSlice({
             }
         },
         updateCartItem: {
-            reducer(state, action) { 
-                console.log(action.payload)
-                state.cartItem = [...state.cartItem, action.payload];
-
-                console.log(state.cartItem)
+            reducer(state, action) {
+                if (action.payload.length > 0) {
+                    state.cartItem = action.payload;
+                } else {
+                    let isExist = false;
+                    state.cartItem = state.cartItem.map((item) => {
+                        if (item.id === action.payload.id) {
+                            isExist = true
+                            return { ...item, quantity: Number(item.quantity) + Number(action.payload.quantity) }
+                        }
+                        return item;
+                    });
+    
+                    if (!isExist) {
+                        state.cartItem = [...state.cartItem, action.payload];
+                    }
+                    isExist = false;
+                }
             }
         }
     }
@@ -87,10 +100,10 @@ const productsSlice = createSlice({
 export const selectPaginationRange = (state) => state.products.paginationRange;
 export const selectCartItem = (state) => state.products.cartItem;
 
-export const { 
-    updatePaginationRange, 
-    resetPaginationRange, 
-    updateCartItem 
+export const {
+    updatePaginationRange,
+    resetPaginationRange,
+    updateCartItem
 } = productsSlice.actions;
 
 export default productsSlice.reducer;
