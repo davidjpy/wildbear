@@ -81,7 +81,7 @@ const productsSlice = createSlice({
                     let isExist = false;
                     state.cartItem = state.cartItem.map((item) => {
                         if (item.id === action.payload.id) {
-                            isExist = true
+                            isExist = true;
                             return { ...item, quantity: Number(item.quantity) + Number(action.payload.quantity) }
                         }
                         return item;
@@ -93,6 +93,11 @@ const productsSlice = createSlice({
                     isExist = false;
                 }
             }
+        },
+        removeCartItem: {
+            reducer(state, action) {
+                state.cartItem = state.cartItem.filter(item => item.id !== action.payload);
+            }
         }
     }
 });
@@ -103,7 +108,8 @@ export const selectCartItem = (state) => state.products.cartItem;
 export const {
     updatePaginationRange,
     resetPaginationRange,
-    updateCartItem
+    updateCartItem,
+    removeCartItem
 } = productsSlice.actions;
 
 export default productsSlice.reducer;

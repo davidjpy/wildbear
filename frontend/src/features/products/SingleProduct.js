@@ -72,7 +72,7 @@ const SingleProduct = () => {
     }
 
     const handleUpdateCount = (e) => {
-        if (!e.target.value < 1) {
+        if (!(e.target.value < 1)) {
             setCount(e.target.value);
         } else {
             setCount(1);
@@ -143,7 +143,7 @@ const SingleProduct = () => {
                                 </div>
                                 <div className='singleproduct__rating-wrapper'>
                                     <p className='singleproduct__text singleproduct__text--subtitle'>
-                                        {/*                                         <MdRateReview className='singleproduct__icon' /> */}
+                                        <MdRateReview className='singleproduct__icon' />
                                         Rating
                                     </p>
                                     <div className='singleproduct__rating'>
@@ -162,7 +162,7 @@ const SingleProduct = () => {
                                 </div>
                                 <div className='singleproduct__body-wrapper'>
                                     <p className='singleproduct__text singleproduct__text--subtitle'>
-                                        {/*                                         <AiFillRead className='singleproduct__icon' /> */}
+                                        <AiFillRead className='singleproduct__icon' />
                                         Description
                                     </p>
                                     <p className='singleproduct__text singleproduct__text--body'>{productDataById?.description}</p>
@@ -170,9 +170,9 @@ const SingleProduct = () => {
                                 </div>
                                 <div className='singleproduct__action-wrapper'>
                                     <p className='singleproduct__text singleproduct__text--price'>$ {productDataById?.price}</p>
-                                    <div className='singleproduct__flexbox'>
+                                    <div className='singleproduct__input-flexbox'>
                                         <button onClick={handleDecrement} className='singleproduct__button singleproduct__button--decrement'>-</button>
-                                        <input className='singleproduct__input' min='0' value={count} type='number' onChange={(e) => handleUpdateCount(e)} />
+                                        <input className='singleproduct__input' value={count} type='number' onChange={(e) => handleUpdateCount(e)} />
                                         <button onClick={handleIncrement} className='singleproduct__button singleproduct__button--increment'>+</button>
                                     </div>
                                     <button onClick={handleAddToCart} disabled={disabledCart}
