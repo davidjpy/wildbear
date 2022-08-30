@@ -1,6 +1,6 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useSearchParams } from 'react-router-dom';
 
 import './ProductListPage.css';
 import SearchBar from '../features/products/SearchBar';
@@ -14,7 +14,7 @@ const ProductListPage = () => {
     const location = useLocation();
     const dispatch = useDispatch();
     const { category } = useParams();
-    const [search, setSearch] = useState('');
+    const [searchParams, setSearchParams] = useSearchParams({ search: '' });
 
     const handleScroll = () => {
         window.scrollTo({
@@ -60,13 +60,13 @@ const ProductListPage = () => {
                     leftMenuRef={leftMenuRef}
                     handleOpenLeftMenu={handleOpenLeftMenu}
                     handleCloseLeftMenu={handleCloseLeftMenu}
-                    search={search}
-                    setSearch={setSearch}
+                    searchParams={searchParams}
+                    setSearchParams={setSearchParams}
                 />
                 <Products 
                     productsRef={productsRef}
                     location={location}
-                    search={search}
+                    searchParams={searchParams}
                 />
             </div>
         </div>

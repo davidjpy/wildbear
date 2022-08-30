@@ -10,7 +10,7 @@ import {
     updatePaginationRange
 } from './productsSlice';
 
-const Products = ({ productsRef, location, search }) => {
+const Products = ({ productsRef, location, searchParams }) => {
 
     const {
         isLoading,
@@ -41,7 +41,7 @@ const Products = ({ productsRef, location, search }) => {
         category === 'all' ? productData.sort((a, b) => b.price - a.price) : productData.filter(item => item.category === category)
         , [productData, category]);
 
-    const handleFilterProducts = productQuery.filter(item => item.title.toLowerCase().includes(search.toLowerCase()));
+    const handleFilterProducts = productQuery.filter(item => item.title.toLowerCase().includes(searchParams.get('search').toLowerCase()));
 
     const pageProducts = useMemo(() => {
         let pageItems = [];
@@ -71,6 +71,12 @@ const Products = ({ productsRef, location, search }) => {
             navigate(`/products/${category}/page=${page}`);
         }
     }
+
+    useEffect(() => {
+        if (isSuccess && ((paginations.length !== 0 && pagenum > paginations.length) || pagenum < 1)) {
+            navigate('/missing');
+        }
+    }, [pagenum, paginations, isSuccess, navigate]);
 
     useEffect(() => {
         dispatch(updatePaginationRange({ pageNum: Number(pagenum), dataLength: pageProducts.length }));

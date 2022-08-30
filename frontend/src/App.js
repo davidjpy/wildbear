@@ -16,6 +16,8 @@ const ProductPage = lazy(() => import('./pages/ProductPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const CartPage = lazy(() => import('./pages/CartPage'));
+const SuccessPage = lazy(() => import('./pages/SuccessPage'));
+const MissingPage = lazy(() => import('./pages/MissingPage'));
 
 function App() {
     return (
@@ -34,6 +36,8 @@ function App() {
                     <Route path='cart' element={<CartPage />} />
                     <Route path='about' element={<AboutPage />} />
                     <Route path='contact' element={<ContactPage />} />
+                    <Route path='success' element={<SuccessPage />} />
+                    <Route path='*' element={<MissingPage />} />
                 </Route>
             </Routes>
        </Suspense>

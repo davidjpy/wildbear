@@ -402,18 +402,12 @@
 
     .products__grid {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(16, 1fr);
     }
 }
 
 @media screen and (max-width: 1200px) {
     .products__image {
         padding: 1rem;
-    }
-
-    .products__grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(16, 1fr);
     }
 
     .products__text {
@@ -428,7 +422,6 @@
 @media screen and (max-width: 1000px) {
     .products__grid {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(24, 1fr);
     }
 }
 
@@ -443,7 +436,6 @@
 
     .products__grid {
         grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(48, 1fr);
     }
 }
 

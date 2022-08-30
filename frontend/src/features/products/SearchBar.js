@@ -3,17 +3,17 @@ import { FaSearch, FaTimes } from 'react-icons/fa';
 import { AiOutlineMenuUnfold } from 'react-icons/ai';
 import { HiMenu } from 'react-icons/hi';
 
-const SearchBar = ({ leftMenuRef, handleOpenLeftMenu, handleCloseLeftMenu, search, setSearch }) => {
+const SearchBar = ({ leftMenuRef, handleOpenLeftMenu, handleCloseLeftMenu, searchParams, setSearchParams }) => {
 
     const inputRef = useRef();
     const [listExpand, setListExpand] = useState(false);
 
     const handleSearchChange = (e) => {
-        setSearch(e.target.value);
+        setSearchParams({ search: e.target.value });
     }
 
     const handleEmptySearch = () => {
-        setSearch('');
+        setSearchParams({ search: '' });
         inputRef.current.focus();
     }
 
@@ -62,7 +62,7 @@ const SearchBar = ({ leftMenuRef, handleOpenLeftMenu, handleCloseLeftMenu, searc
                 <div className='searchbar__label searchbar__label--middle'>
                     <FaSearch className='searchbar__icons searchbar__icons--search' />
                 </div>
-                <input type='text' ref={inputRef} autoFocus onChange={(e) => handleSearchChange(e)} value={search} className='searchbar__input' placeholder='Search for products' />
+                <input type='text' ref={inputRef} autoFocus onChange={(e) => handleSearchChange(e)} value={searchParams.get('search')} className='searchbar__input' placeholder='Search for products' />
                 <div onClick={handleEmptySearch} className='searchbar__label searchbar__label--end'>
                     <FaTimes className='searchbar__icons' />
                 </div>

@@ -31,6 +31,12 @@ const SingleProduct = () => {
     const [count, setCount] = useState(1);
     const [disabledCart, setDisabledCart] = useState(false);
 
+    useEffect(() => {
+        if (isSuccess && !productDataById) {
+            navigate('/missing');
+        }
+    }, [isSuccess, productDataById, navigate]);
+
     const productFeatures = useMemo(() => {
         let arrays = [];
         let item = '';

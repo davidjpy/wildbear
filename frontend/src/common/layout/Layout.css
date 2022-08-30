@@ -95,7 +95,7 @@ a:-webkit-any-link {
     position: fixed;
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     padding: 2rem;
     width: 350px;
     border-radius: 10px;
@@ -154,7 +154,6 @@ a:-webkit-any-link {
     .nav__text--notification--body {
         font-size: 0.8rem;
     }
-    
 }
 
 /* ========================================= 

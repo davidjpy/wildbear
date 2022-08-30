@@ -1,16 +1,21 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { BsCartX } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
 import { 
-    selectCartItem, 
     updateCartItem,
     removeCartItem
 } from './productsSlice';
 import { updateNotification } from '../notification/notificationSlice';
 
-const CartItems = () => {
+const CartItems = ({ currentCartItem }) => {
 
-    const currentCartItem = useSelector(selectCartItem);
+    const navigate = useNavigate();
+
+    const handleNavigateProduct = () => {
+        navigate('/products/all')
+    }
 
     return (
         <div className='cartitem'>
@@ -21,13 +26,20 @@ const CartItems = () => {
             <div className='cartitem__items'>
                 <div className='cartitem__items-header-wrapper'>
                     <p className='cartitem__header cartitem__header--white' style={{ width: '80%' }}>Cart Item</p>
-                    <p className='cartitem__header cartitem__header--test' style={{ width: '20%', textAlign: 'center' }}>Subtotal</p>
+                    <p className='cartitem__header cartitem__header--end' style={{ width: '20%', textAlign: 'center' }}>Subtotal</p>
                 </div>
-                {currentCartItem.map((item) => {
-                    return (
-                        <SingleItem key={item.id} item={item} />
-                    );
-                })}
+                {currentCartItem.length > 0 ?
+                (
+                    currentCartItem.map((item) => {
+                        return (
+                            <SingleItem key={item.id} item={item} />
+                        );
+                    })
+                ) : (
+                    <div className='cartitem__empty-cart'>
+                        <BsCartX className='cartitem__icon' />Your cart is empty! Click <span onClick={handleNavigateProduct} className='cartitem__link'>here</span> to look around.
+                    </div>
+                )}
             </div>
         </div>
     );
@@ -85,9 +97,9 @@ const SingleItem = ({ item }) => {
                     <img src={item.image} alt={item.title} className='cartitem__image' />
                 </div>
                 <div className='cartitem__description'>
-                    <p className='cartitem__header cartitem__header--black'><span className='cartitem__header'>{item.brand}</span> | {item.title.replace(`${item.brand}`, '')}</p>
+                    <p className='cartitem__header cartitem__header--black'><span className='cartitem__header'>{item.brand}</span> | {item.title?.replace(`${item.brand}`, '')}</p>
                     <div className='cartitem__divider cartitem__divider--primary' />
-                    <p className='cartitem__body cartitem__body--gray'>{item.description.substring(0, 120) + ' ......'}</p>
+                    <p className='cartitem__body cartitem__body--gray'>{item.description?.substring(0, 120) + ' ......'}</p>
                     <div className='cartitem__figure--wrapper'>
                         <p className='cartitem__body cartitem__body--gray' style={{ flex: 1 }}>Price: <span className='cartitem__body cartitem__body--hightlight'>${item.price}</span></p>
                         <p className='cartitem__body cartitem__body--gray'>Quantity: </p>

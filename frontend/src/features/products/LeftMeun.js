@@ -1,12 +1,14 @@
 import { Fragment, useEffect, useState, useCallback, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const LeftMeun = ({ leftMenuRef, location }) => {
 
     const navigate = useNavigate();
+    const { category, pagenum } = useParams();
+    const [active, setActive] = useState('All Categories');
     const url = location.pathname
-    const urlSuffix = '/page=1'
-    const menuOptions = useMemo(() => 
+    const urlSuffix = '/page=1/'
+    const menuOptions = useMemo(() =>
         [
             {
                 title: 'EXPLORE',
@@ -38,18 +40,31 @@ const LeftMeun = ({ leftMenuRef, location }) => {
             }
         ], []);
 
-    const [active, setActive] = useState('All Categories');
+    useEffect(() => {
+        const array = menuOptions.reduce((accu, curr) => {
+            const nav = curr.subTitle.map(item => item.nav.replace(`${urlSuffix}`, ''));
+            accu = [...accu, ...nav];
+            return accu;
+        }, []);
+
+        if (array.indexOf(`${category}`) < 0) {
+            navigate('/missing');
+        } else if (!pagenum) {
+            navigate(`/products/${category}/page=1`);
+        }
+
+    }, [menuOptions, category, pagenum, navigate]);
 
     const handleSetActive = (nav) => {
         navigate(`/products/${nav}`);
     }
 
     const handleUpdateActive = useCallback(() => {
-        const targetUrl = url.substring(url.indexOf('/', 1) + 1, url.lastIndexOf('/')) + urlSuffix;
-        const parent = menuOptions.find(item => item.subTitle.find(subItem => subItem.nav === targetUrl));
-        const target = parent.subTitle.find(item => item.nav === targetUrl);
+        const targetUrl = url.substring(url.indexOf('/', 1) + 1);
+        const parent = menuOptions.find(item => item?.subTitle.find(subItem => subItem?.nav === targetUrl));
+        const target = parent?.subTitle.find(item => item?.nav === targetUrl);
 
-        setActive(target.header);
+        setActive(target?.header);
     }, [menuOptions, url]);
 
     useEffect(() => {

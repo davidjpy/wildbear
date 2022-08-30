@@ -17,9 +17,9 @@ const Nav = () => {
 
     const index = [
         { tab: 'HOME', nav: '/' },
-        { tab: 'PRODUCTS', nav: '/products/all/page=1' },
-        { tab: 'ABOUT', nav: '/about' },
-        { tab: 'CONTACT', nav: '/contact' }
+        { tab: 'PRODUCTS', nav: `/products/all/page=1/` },
+        { tab: 'ABOUT', nav: '/about/' },
+        { tab: 'CONTACT', nav: '/contact/' }
     ];
 
     const navigate = useNavigate();
@@ -44,6 +44,8 @@ const Nav = () => {
     useEffect(() => {
         if (currentCartItem.length > 0) {
             localStorage.setItem('cartItem', JSON.stringify(currentCartItem));
+        } else {
+            localStorage.removeItem('cartItem');
         }
     }, [currentCartItem]);
 

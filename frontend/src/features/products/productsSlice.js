@@ -96,7 +96,11 @@ const productsSlice = createSlice({
         },
         removeCartItem: {
             reducer(state, action) {
-                state.cartItem = state.cartItem.filter(item => item.id !== action.payload);
+                if (!action.payload) {
+                    state.cartItem = [];
+                } else {
+                    state.cartItem = state.cartItem.filter(item => item.id !== action.payload);
+                }
             }
         }
     }
