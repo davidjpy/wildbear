@@ -1,6 +1,11 @@
+import './MissingPage.css';
+import MissingMessage from '../common/component/missingpage/MissingMessage';
+
 const MissingPage = () => {
     return (
-        <h1>Missing</h1>
+        <div className='missingpage'>
+            <MissingMessage />
+        </div>
     );
 }
 

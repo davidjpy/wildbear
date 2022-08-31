@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { RiShoppingCart2Fill } from 'react-icons/ri';
+import { GiBearHead } from 'react-icons/gi';
 
 import {
     selectCartItem,
@@ -84,10 +85,13 @@ const Nav = () => {
     return (
         <header className='nav'>
             <div className='nav__header'>
-                <h4 className='nav__title'>WildBear - Best Seller in Camping Equipment</h4>
+                <div className='nav__logo'>
+                    <GiBearHead className='nav__icon' />
+                    <h4 className='nav__title'>WildBear</h4>
+                </div>
                 <div onClick={handleNavigateCart} className='nav__icon-wrapper'>
                     <RiShoppingCart2Fill className='nav__icon' />
-                    <div className='nav__badge'>{currentCartItem?.length}</div>
+                    <div className='nav__badge' style={{ display: currentCartItem.length === 0 && 'none' }} >{currentCartItem?.length}</div>
                 </div>
             </div>
             <div className='nav__tabs'>

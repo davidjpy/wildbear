@@ -37,6 +37,11 @@ export const {
     selectById: selectProductsById
 } = productsAdapter.getSelectors(state => selectProductsData(state) ?? adapterInitialState);
 
+export const selectNewProductsData = createSelector(
+    selectAllProducts,
+    newProductsResult => newProductsResult.sort((a, b) => a.id - b.id).slice(-6)
+);
+
 /* RTK for managing global state */
 const initialState = {
     paginationRange: [0, 3],

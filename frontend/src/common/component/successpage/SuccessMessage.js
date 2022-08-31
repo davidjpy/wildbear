@@ -23,7 +23,7 @@ const SuccessMessage = () => {
             <div className='successmessage__hyperlink-wrapper'>
                 <p onClick={handleNavigateHome} className='successmessage__body successmessage__body--highlight'>Back To Home</p>
                 <span className='successmessage__body successmessage__body--sep'> | </span>
-                <p onClick={handleNavigateProducts} className='successmessage__body successmessage__body--highlight'>Look For More</p>
+                <p onClick={handleNavigateProducts} className='successmessage__body successmessage__body--highlight'>Look For Products</p>
             </div>
         </div>
     );

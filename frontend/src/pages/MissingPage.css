@@ -1,0 +1,72 @@
+.missingpage {
+    background-image: url('../../public/assets/images/missing.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+    .missingpage {
+        background-size: cover;
+    }
+}
+
+/* ========================================= 
+============ SuccessMessage ================
+========================================= */
+
+.missingmessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.801);
+    padding: 3rem;
+    border-radius: 10px; 
+    margin: auto;
+    gap: 20px;
+}
+
+.missingmessage__icon {
+    font-size: 5rem;
+    color: rgb(199, 80, 80);
+}
+
+.missingmessage__header {
+    color: white;
+}
+
+.missingmessage__body {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.missingmessage__body--highlight:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.missingmessage__hyperlink-wrapper {
+    display: flex;
+}
+
+.missingmessage__body--sep {
+    margin: 0 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .missingmessage {
+        padding: 1.6rem;
+    }
+
+    .missingmessage__header {
+        font-size: 1.2rem;
+    }
+
+    .missingmessage__body {
+        font-size: 0.8rem;
+    }
+}

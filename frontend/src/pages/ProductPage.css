@@ -49,6 +49,7 @@
     height: 550px;
     width: 100%;
     padding: 5rem;
+    user-select: none;
 }
 
 .singleproduct__descriptions {

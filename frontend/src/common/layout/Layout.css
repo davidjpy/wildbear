@@ -17,9 +17,17 @@
     max-height: 40px;
 }
 
+.nav__logo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
 .nav__title {
     color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: italic;
+    font-size: 1rem;
 }
 
 .nav__icon-wrapper {
@@ -107,7 +115,6 @@ a:-webkit-any-link {
 
 .nav__text {
     text-align: justify;
-    text-transform: capitalize;
     font-family: 'Times New Roman', Times, serif;
 }
 
