@@ -1,0 +1,81 @@
+.aboutpage {
+}
+
+/* ========================================= 
+============== AboutMessage ================
+========================================= */
+
+.aboutmessage {
+    position: relative;
+}
+
+.aboutmessage__loading-screen {
+    height: 100vh;
+    background-color: black;
+}
+
+.aboutmessage__image {
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    user-select: none;
+}
+
+.aboutmessage__logo {
+    position: absolute;
+    top: -15%;
+    opacity: 0;
+    left: 6%;
+    transition: all 0.8s ease-in-out;
+}
+
+.aboutmessage__icon-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 2rem;
+}
+
+.aboutmessage__icon {
+    font-size: 8rem;
+    color: white;
+}
+
+.aboutmessage__header {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    font-size: 4rem;
+    font-weight: 600;
+    padding-bottom: 1rem;
+}
+
+.aboutmessage__header--logo {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+}
+
+.aboutmessage__header--small {    
+    font-size: 2.8rem;
+}
+
+.aboutmessage__header--smaller {    
+    font-size: 2rem;
+}
+
+.aboutmessage__slogan-wrapper {
+    width: 1000px;
+}
+
+.aboutmessage__banner {
+    position: absolute;
+    display: flex;
+    left: 0;
+    top: 36%;
+    width: 70%;
+    padding: 3rem 4rem;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.aboutmessage__about {
+
+}
