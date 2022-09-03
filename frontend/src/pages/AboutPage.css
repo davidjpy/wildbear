@@ -1,4 +1,18 @@
 .aboutpage {
+    background-image: url('../../public/assets/images/about2.jpg');
+    height: 0;
+    padding-bottom: 66.67%;
+    background-position: top center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 1200px) {
+    .aboutpage {
+        padding: 0;
+        min-height: calc(100vh - 80px);
+        background-size: cover;
+    }
 }
 
 /* ========================================= 
@@ -16,8 +30,14 @@
 
 .aboutmessage__image {
     display: block;
-    object-fit: contain;
     width: 100%;
+    user-select: none;
+    min-height: 900px;
+}
+
+.aboutmessage__inline-image {
+    height: 400px;
+    object-fit: contain;
     user-select: none;
 }
 
@@ -33,7 +53,7 @@
     display: flex;
     align-items: center;
     gap: 18px;
-    padding-bottom: 2rem;
+    padding: 0 1rem 2rem 0;
 }
 
 .aboutmessage__icon {
@@ -46,12 +66,13 @@
     color: white;
     font-size: 4rem;
     font-weight: 600;
-    padding-bottom: 1rem;
+    padding-bottom: 1.2rem;
 }
 
 .aboutmessage__header--logo {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: italic;
+    padding: 0;
 }
 
 .aboutmessage__header--small {    
@@ -62,20 +83,133 @@
     font-size: 2rem;
 }
 
+.aboutmessage__body {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    font-size: 1rem;
+    text-align: justify;
+    line-height: 24px;
+}
+
+.aboutmessage__body--gray {
+    color: rgb(190, 190, 190);
+    padding-bottom: 0.4rem;
+}
+
 .aboutmessage__slogan-wrapper {
     width: 1000px;
+    padding-right: 1rem;
 }
 
 .aboutmessage__banner {
     position: absolute;
     display: flex;
-    left: 0;
-    top: 36%;
-    width: 70%;
-    padding: 3rem 4rem;
+    justify-content: space-between;
+    left: -1400px;
+    top: 40%;
+    opacity: 0;
+    height: fit-content;
+    width: 1400px;
+    padding: 5.5rem;
     background-color: rgba(0, 0, 0, 0.7);
+    transition: all 1s ease-in-out;
 }
 
-.aboutmessage__about {
+.aboutmessage__block-wrapper {
+    width: 28%;
+}
 
+@media screen and (max-width: 1400px) {
+    .aboutmessage__icon {
+        font-size: 4rem;
+    }
+
+    .aboutmessage__header {
+        font-size: 3rem;
+    }
+    
+    .aboutmessage__header--small {    
+        font-size: 2.3rem;
+    }
+    
+    .aboutmessage__header--smaller {    
+        font-size: 1.6rem;
+    }
+
+    .aboutmessage__slogan-wrapper {
+        width: 100%;
+    }
+
+    .aboutmessage__banner {
+        padding: 2rem;
+        width: 100%;
+        top: 32%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .aboutmessage__icon {
+        font-size: 3.6rem;
+    }
+
+    .aboutmessage__icon-wrapper {
+        padding-bottom: 1rem;
+    }
+
+    .aboutmessage__header {
+        font-size: 2.4rem;
+    }
+    
+    .aboutmessage__header--small {    
+        font-size: 2rem;
+    }
+    
+    .aboutmessage__header--smaller {    
+        font-size: 1.4rem;
+    }
+
+    .aboutmessage__body {
+        font-size: 0.6rem;
+    }
+
+    .aboutmessage__block-wrapper {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .aboutmessage {
+        height: calc(100vh - 80px);
+    }
+
+    .aboutmessage__banner {
+        top: 28%;
+        padding: 3rem;
+        flex-direction: column;
+        max-height: 400px;
+        overflow-y: scroll;
+        text-align: center;
+        gap: 50px;
+    }
+
+    .aboutmessage__block-wrapper {
+        width: 100%;
+    }
+    
+    .aboutmessage__body--gray {
+        text-align: center;
+    }
+
+    .aboutmessage__icon {
+        font-size: 2.4rem;
+    }
+
+    .aboutmessage__header {
+        font-size: 1.4rem;
+    }
+    
+    .aboutmessage__header--small {    
+        font-size: 1.2rem;
+        text-align: justify;
+    }
 }

@@ -1,15 +1,16 @@
 .missingpage {
     background-image: url('../../public/assets/images/missing.jpg');
+    height: 0;
+    padding-bottom: 66.67%;
+    background-position: top center;
+    background-size: 100%;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    min-height: calc(100vh - 80px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 @media screen and (max-width: 1200px) {
     .missingpage {
+        padding: 0;
+        min-height: calc(100vh - 80px);
         background-size: cover;
     }
 }
@@ -19,15 +20,23 @@
 ========================================= */
 
 .missingmessage {
+    position: relative;
+}
+
+.missingmessage-wrapper {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.801);
-    padding: 3rem;
-    border-radius: 10px; 
-    margin: auto;
+    flex-direction: column;    
     gap: 20px;
+    padding: 3rem;
+    width: 500px;
+    border-radius: 10px; 
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .missingmessage__icon {
@@ -58,6 +67,10 @@
 }
 
 @media screen and (max-width: 600px) {
+    .missingmessage-wrapper {
+        width: 100%;
+    }
+
     .missingmessage {
         padding: 1.6rem;
     }

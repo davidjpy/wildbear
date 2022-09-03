@@ -1,15 +1,16 @@
 .successpage {
     background-image: url('../../public/assets/images/success.jpg');
+    height: 0;
+    padding-bottom: 66.67%;
+    background-position: top center;
+    background-size: 100%;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    min-height: calc(100vh - 80px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 @media screen and (max-width: 1200px) {
     .successpage {
+        padding: 0;
+        min-height: calc(100vh - 80px);
         background-size: cover;
     }
 }
@@ -19,15 +20,23 @@
 ========================================= */
 
 .successmessage {
+    position: relative;
+}
+
+.successmessage-wrapper {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.801);
-    padding: 3rem;
-    border-radius: 10px; 
-    margin: auto;
+    flex-direction: column;    
     gap: 20px;
+    padding: 3rem;
+    width: 500px;
+    border-radius: 10px; 
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .successmessage__icon {
@@ -58,6 +67,10 @@
 }
 
 @media screen and (max-width: 600px) {
+    .successmessage-wrapper {
+        width: 100% ;
+    }
+
     .successmessage {
         padding: 1.6rem;
     }
