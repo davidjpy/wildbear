@@ -98,15 +98,15 @@ const CartSummary = ({ currentCartItem }) => {
                 <div className='cartsummary__subtotal-wrapper'>
                     <p className='cartsummary__body'>Shipping Charge</p>
                     <div style={{ display: 'flex', gap: '5px' }}>
-                        {shippingCharge === 0 ? 
-                        (
-                            <p className='cartsummary__body'>${shippingCharge}</p>
-                        ) : (
-                            <>
-                                <span className='cartsummary__body cartsummary__body--active'>$0</span>
-                                <p className='cartsummary__body cartsummary__body--disable'>${shippingCharge}</p>
-                            </>
-                        )}
+                        {shippingCharge === 0 ?
+                            (
+                                <p className='cartsummary__body'>${shippingCharge}</p>
+                            ) : (
+                                <>
+                                    <span className='cartsummary__body cartsummary__body--active'>$0</span>
+                                    <p className='cartsummary__body cartsummary__body--disable'>${shippingCharge}</p>
+                                </>
+                            )}
                     </div>
                 </div>
                 <div className='cartsummary__subtotal-wrapper'>
@@ -140,13 +140,15 @@ const CartSummary = ({ currentCartItem }) => {
                     <FaCcAmex className='cartsummary__icon' />
                 </div>
                 <div className='cartsummary__divider cartsummary__divider--secondary' />
-                <input placeholder='Email' type='text' value={email} onChange={(e) => handleEmailChange(e)} className='cartsummary__input' />
-                <input placeholder='Phone' type='number' value={phone} onChange={(e) => handlePhoneChange(e)} className='cartsummary__input' />
-                <input placeholder='Street Address' type='text' value={street} onChange={(e) => handleStreetChange(e)} className='cartsummary__input' />
-                <div className='cartsummary__input-wrapper'>
-                    <input placeholder='City' type='text' value={city} onChange={(e) => handleCityChange(e)} className='cartsummary__input cartsummary__input--long' />
-                    <input placeholder='Country' type='text' value={country} onChange={(e) => handleCountryChange(e)} className='cartsummary__input cartsummary__input--short' />
-                </div>
+                <form>
+                    <input placeholder='Email' type='text' value={email} onChange={(e) => handleEmailChange(e)} className='cartsummary__input' />
+                    <input placeholder='Phone' type='number' value={phone} onChange={(e) => handlePhoneChange(e)} className='cartsummary__input' />
+                    <input placeholder='Street Address' type='text' value={street} onChange={(e) => handleStreetChange(e)} className='cartsummary__input' />
+                    <div className='cartsummary__input-wrapper'>
+                        <input placeholder='City' type='text' value={city} onChange={(e) => handleCityChange(e)} className='cartsummary__input cartsummary__input--long' />
+                        <input placeholder='Country' type='text' value={country} onChange={(e) => handleCountryChange(e)} className='cartsummary__input cartsummary__input--short' />
+                    </div>
+                </form>
                 <button onClick={handleSubmitData} disabled={!validInput} className='cartsummary__button'>
                     {isLoading ? (<div className='cartsummary__spinner'><div></div><div></div><div></div><div></div></div>) : 'Checkout'}
                 </button>

@@ -20,6 +20,13 @@ const SuccessMessage = ({ pageRef }) => {
     }, [pageRef]);
 
     useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0
+        })
+    }, []);
+
+    useEffect(() => {
         handleSuccessMessageHeight();
     }, [handleSuccessMessageHeight]);
 

@@ -15,8 +15,6 @@ const Products = ({ productsRef, location, searchParams }) => {
     const {
         isLoading,
         isSuccess,
-        isError,
-        error
     } = useGetProductsQuery();
 
     const dispatch = useDispatch();
