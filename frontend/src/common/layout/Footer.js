@@ -77,7 +77,7 @@ const Footer = () => {
             <div className='footer__disclaimer'>
                 <div className='footer__divider' />
                 <div className='footer__wrapper'>
-                    <p className='footer__text footer__text--disclaimer' style={{ flex: 1 }}>&#xa9; 2022 WildBear inc. All Rights Reserved | Designed and Created by <span className='footer__text footer__text--disclaimer-link footer__text--disclaimer-italic'>David Ho</span></p>
+                    <p className='footer__text footer__text--disclaimer' style={{ flex: 1 }}>&#xa9; 2022 WildBear inc. All Rights Reserved | Designed and Created by <a target='_blank' rel='noreferrer' href='https://github.com/davidjpy?tab=repositories' className='footer__text footer__text--disclaimer-link footer__text--disclaimer-italic' style={{ display: 'inline', padding: 0 }}>David Ho</a></p>
                     <p className='footer__text footer__text--disclaimer'><span className='footer__text footer__text--disclaimer-link'>Terms of Use</span> | <span className='footer__text footer__text--disclaimer-link'>Privacy Policy</span> | <span className='footer__text footer__text--disclaimer-link'>License Agreement</span></p>
                 </div>
             </div>
