@@ -7,6 +7,10 @@ const AboutMessage = ({ pageRef }) => {
     const aboutRef = useRef();
 
     useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0
+        });
         setTimeout(() => {
             setShowContent(true);
         }, 200);
