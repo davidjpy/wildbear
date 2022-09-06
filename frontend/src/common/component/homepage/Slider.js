@@ -128,7 +128,7 @@ const Slider = () => {
                         {imageList.map((item, index) => {
                             return (
                                 <Fragment key={index}>
-                                    <img src={`/assets/images/${item.slide}.jpg`} alt={item.slide} loading='eager'
+                                    <img src={`/assets/images/${item.slide}.jpg`} alt={item.slide} loading='lazy'
                                         onClick={index === counter - 1
                                             ? () => handlePrev(index) : index === counter + 1
                                                 ? () => handleNext(index) : null}

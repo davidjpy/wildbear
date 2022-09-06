@@ -19,8 +19,6 @@ const SingleProduct = () => {
     const {
         isLoading,
         isSuccess,
-        isError,
-        error
     } = useGetProductsQuery();
 
     const { id } = useParams();
@@ -138,7 +136,7 @@ const SingleProduct = () => {
                     <div className='singleproduct'>
                         <div className='singleproduct__info'>
                             <div className='singleproduct__image-wrapper'>
-                                <img src={productDataById?.image} alt={productDataById?.title} className='singleproduct__image' />
+                                <img src={productDataById?.image} alt={productDataById?.title} className='singleproduct__image' loading='lazy' />
                             </div>
                             <div className='singleproduct__descriptions'>
                                 <div className='singleproduct__title-wrapper'>

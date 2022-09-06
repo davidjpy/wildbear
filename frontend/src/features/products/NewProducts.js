@@ -49,7 +49,7 @@ const Product = ({ item }) => {
 
     return (
         <div onClick={() => handleNavigateSingleProduct(item.id)} className='newproducts__card'>
-            <img src={item.image} alt={item.title} className='newproducts__image' loading='eager' />
+            <img src={item.image} alt={item.title} className='newproducts__image' loading='lazy' />
             <p className='newproducts__pricetag'>{item.title.replace(`${item.brand}`, '')}</p>
         </div>
     );
