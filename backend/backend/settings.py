@@ -143,5 +143,6 @@ ALLOWED_HOSTS = [
     "e-commerce-env.eba-ukdr3bz2.ap-east-1.elasticbeanstalk.com", 
     '172.31.10.91',
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
+    "camping-gear-api.com"
 ]
