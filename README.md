@@ -7,7 +7,7 @@ Wildbear is e-commerce website designed for selling camping gear.
 * Django
 * Netlify
 * Postgresql
-* Amazon Web Services => Elastic Beanstalk, EC2, RDS, Load Balancer, Certificate Manager, Route 53
+* Amazon Web Services - Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53
 
-## Showcase
+## Demostration
 https://www.wildbear-shop.com/
