@@ -3,9 +3,7 @@ import { useSelector } from 'react-redux';
 import './CartPage.css';
 import CartItems from '../features/products/CartItems';
 import CartSummary from '../features/products/CartSummary'
-import { 
-    selectCartItem, 
-} from '../features/products/productsSlice';
+import { selectCartItem } from '../features/products/productsSlice';
 
 const CartPage = () => {
 

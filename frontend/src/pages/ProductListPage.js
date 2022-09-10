@@ -46,8 +46,9 @@ const ProductListPage = () => {
         }
     }
 
+    const closeMenuRef = useRef();
     const productsRef = useRef();
-    const leftMenuRef = useClickOutside(handleCloseLeftMenu);
+    const leftMenuRef = useClickOutside(handleCloseLeftMenu, closeMenuRef);
 
     return (
         <div className='productlistpage'>
@@ -62,6 +63,7 @@ const ProductListPage = () => {
                     handleCloseLeftMenu={handleCloseLeftMenu}
                     searchParams={searchParams}
                     setSearchParams={setSearchParams}
+                    closeMenuRef={closeMenuRef}
                 />
                 <Products 
                     productsRef={productsRef}

@@ -10,7 +10,7 @@
 @media screen and (max-width: 1200px) {
     .contactpage {
         padding: 0;
-        min-height: calc(100vh - 80px);
+        min-height: 800px;
         background-size: cover;
     }
 }

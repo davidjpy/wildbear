@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react';
 
-export const useClickOutside = (handlerFunction) => {
+export const useClickOutside = (handlerFunction, closeMenuRef) => {
 
     const node = useRef();
 
     useEffect(() => {
         const handler = (event) => {
-            if (!node.current.contains(event.target)) {
+            if (!node.current.contains(event.target) && !closeMenuRef.current.contains(event.target)) {
                 handlerFunction();
             }
         }

@@ -3,7 +3,7 @@ import { FaSearch, FaTimes } from 'react-icons/fa';
 import { AiOutlineMenuUnfold } from 'react-icons/ai';
 import { HiMenu } from 'react-icons/hi';
 
-const SearchBar = ({ leftMenuRef, handleOpenLeftMenu, handleCloseLeftMenu, searchParams, setSearchParams }) => {
+const SearchBar = ({ leftMenuRef, handleOpenLeftMenu, handleCloseLeftMenu, searchParams, setSearchParams, closeMenuRef }) => {
 
     const inputRef = useRef();
     const [listExpand, setListExpand] = useState(false);
@@ -33,9 +33,13 @@ const SearchBar = ({ leftMenuRef, handleOpenLeftMenu, handleCloseLeftMenu, searc
         function hideLeftmenu () {
             if (window.innerWidth < 1000) {
                 handleCloseLeftMenu();
+                leftMenuRef.current.style.overflow = 'scroll';
+                leftMenuRef.current.style.paddingBottom = '6rem';
             } else {
                 leftMenuRef.current.style.left = '0';
                 leftMenuRef.current.style.width = '250px';
+                leftMenuRef.current.style.overflow = 'inherit';
+                leftMenuRef.current.style.paddingBottom = '0rem';
             }
         }
         window.addEventListener('resize', hideLeftmenu);
@@ -45,9 +49,17 @@ const SearchBar = ({ leftMenuRef, handleOpenLeftMenu, handleCloseLeftMenu, searc
         }
     });
 
+    useEffect(() => {
+        if (window.innerWidth < 1000) {
+            leftMenuRef.current.style.left = '-250px';
+            leftMenuRef.current.style.overflow = 'scroll';
+            leftMenuRef.current.style.paddingBottom = '6rem';
+        }
+    }, [leftMenuRef]);
+
     return (
         <div className='searchbar'>
-            <div onClick={toggleLeftMenu} className='searchbar__leftmenu'>
+            <div ref={closeMenuRef} onClick={toggleLeftMenu} className='searchbar__leftmenu'>
                 <AiOutlineMenuUnfold className='searchbar__icons searchbar__icons--leftmenu' />
             </div>
             <div className='searchbar__flexbox'>

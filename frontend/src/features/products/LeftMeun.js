@@ -6,8 +6,8 @@ const LeftMeun = ({ leftMenuRef, location }) => {
     const navigate = useNavigate();
     const { category, pagenum } = useParams();
     const [active, setActive] = useState('All Categories');
-    const url = location.pathname
-    const urlSuffix = '/page=1/'
+    const url = location.pathname;
+    const urlSuffix = '/page=1/';
     const menuOptions = useMemo(() =>
         [
             {
