@@ -9,5 +9,5 @@ Wildbear is e-commerce website designed for selling camping gear.
 * Postgresql
 * Amazon Web Services - Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53
 
-## Demostration
+## Demonstration
 https://www.wildbear-shop.com/
