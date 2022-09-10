@@ -75,7 +75,7 @@ const LeftMeun = ({ leftMenuRef, location }) => {
         <div ref={leftMenuRef} className='leftmenu'>
             <div className='leftmenu__wrapper'>
                 <div className='leftmenu__header'>
-                    <h5 className='leftmenu__text leftmenu__text--title' style={{ display: window.innerWidth < 1000 ? 'none' : 'block' }}>CATEGORIES</h5>
+                    <h5 className='leftmenu__text leftmenu__text--title' style={{ visibility: window.innerWidth < 1000 ? 'hidden' : 'visible' }}>CATEGORIES</h5>
                 </div>
                 <div className='leftmenu__body'>
                     {menuOptions.map((item) => {
