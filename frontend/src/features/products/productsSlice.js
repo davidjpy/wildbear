@@ -9,7 +9,7 @@ const adapterInitialState = productsAdapter.getInitialState();
 export const extendedProductsSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getProducts: builder.query({
-            query: () => '/api/products',
+            query: () => '/api/products/',
             transformResponse: responseData => {
                 return productsAdapter.setAll(initialState, responseData);
             },
