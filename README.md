@@ -13,5 +13,5 @@ https://www.wildbear-shop.com/
 * Netlify - Static Site Deployment
 * Postgresql
 * Amazon Web Services - API & Database Deployment 
-  - Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53)
+  - Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53
   
