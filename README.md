@@ -1,6 +1,6 @@
 # :shopping_cart: E-commerce
 ## WildBear
-Wildbear is e-commerce website designed for selling camping gear.
+Wildbear is e-commerce website designed for selling a wide variety of camping gears.
 
 ## Deployment
 https://www.wildbear-shop.com/
@@ -12,4 +12,6 @@ https://www.wildbear-shop.com/
 * Beautifulsoup - Data Collection
 * Netlify - Static Site Deployment
 * Postgresql
-* Amazon Web Services - API & Database Deployment (Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53)
+* Amazon Web Services - API & Database Deployment 
+  - Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53)
+  
