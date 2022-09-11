@@ -16,7 +16,7 @@ https://www.wildbear-shop.com/
   - Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53
   
   
-| Feature  |  Coded?       | Description  |
+| Feature  | | Description  |
 |----------|:-------------:|:-------------|
 | Search for Product | &#10004; | Ability to Search for Products |
 | Add a Product to Cart | &#10004; | Ability to Add a Product to Cart |
