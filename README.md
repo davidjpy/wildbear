@@ -5,10 +5,11 @@ Wildbear is e-commerce website designed for selling camping gear.
 ## Deployment
 https://www.wildbear-shop.com/
 
-## Stacks
+## Stacks & Frameworks
 * ReactJS
 * Redux Toolkit & Redux Toolkit Query
 * Django
-* Netlify
+* Beautifulsoup - Data Collection
+* Netlify - Static Site Deployment
 * Postgresql
-* Amazon Web Services - Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53
+* Amazon Web Services - Api & Database Deployment (Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53)
