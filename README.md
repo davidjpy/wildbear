@@ -1,4 +1,5 @@
-# :shopping_cart: WildBear
+# :shopping_cart: E-commerce
+## WildBear
 Wildbear is e-commerce website designed for selling camping gear.
 
 ## Stacks
