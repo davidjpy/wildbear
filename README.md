@@ -12,4 +12,4 @@ https://www.wildbear-shop.com/
 * Beautifulsoup - Data Collection
 * Netlify - Static Site Deployment
 * Postgresql
-* Amazon Web Services - Api & Database Deployment (Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53)
+* Amazon Web Services - API & Database Deployment (Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53)
