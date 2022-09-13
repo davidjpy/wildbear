@@ -1,6 +1,6 @@
 const WhyUs = ({ scrollRef }) => {
     return (
-        <section ref={scrollRef} className='whyus' >
+        <section ref={scrollRef} className='whyus' style={{ scrollMargin: window.innerHeight < 850 ? '100px' : 'none' }}>
             <div className='whyus__about'>
                 <h3>Why You Would Want to Buy From Us ?</h3>
                 <div className='whyus__underline' />
