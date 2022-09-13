@@ -10,7 +10,7 @@ Wildbear is e-commerce website designed for selling a wide variety of camping ge
 | Remove Cart Product | &#10004; | Ability to Remove a Cart Product |
 
 ## Deployment
-https://www.wildbear-shop.com/
+The demo can be visited via: https://www.wildbear-shop.com/
 
 ## Stacks & Frameworks
 * ReactJS
