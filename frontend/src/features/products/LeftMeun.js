@@ -73,7 +73,7 @@ const LeftMeun = ({ leftMenuRef, location }) => {
 
     return (
         <div ref={leftMenuRef} className='leftmenu'>
-            <div className='leftmenu__wrapper' style={{ overflow: window.innerWidth < 1000 ? 'none' : 'auto' }}>
+            <div className='leftmenu__wrapper'>
                 <div className='leftmenu__header'>
                     <h5 className='leftmenu__text leftmenu__text--title' style={{ visibility: window.innerWidth < 1000 ? 'hidden' : 'visible' }}>CATEGORIES</h5>
                 </div>
