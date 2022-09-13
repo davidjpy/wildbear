@@ -1,6 +1,6 @@
 # :shopping_cart: E-commerce
 ## WildBear
-Wildbear is e-commerce website designed for selling a wide variety of camping gears, bulit with modern ReactJS code.
+Wildbear is e-commerce website designed for selling a wide variety of camping gears. This a full stack web project created with modern ReactJS code, and other major tect stacks.
 
 | Feature  | | Description  |
 |----------|:-------------:|:-------------|
