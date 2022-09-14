@@ -135,8 +135,7 @@ STATIC_ROOT = 'static'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ORIGIN_WHITELIST = [
-    'https://www.wildbear-shop.com',
-    'http://localhost:3000'
+    'https://www.wildbear-shop.com'
 ]
 
 ALLOWED_HOSTS = [
@@ -144,5 +143,5 @@ ALLOWED_HOSTS = [
     '172.31.10.91',
     'localhost',
     '127.0.0.1',
-    "camping-gear-api.com",
+    "camping-gear-api.com"
 ]
