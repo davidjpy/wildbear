@@ -31,9 +31,12 @@ const ProductListPage = () => {
     const handleOpenLeftMenu = () => {
         leftMenuRef.current.style.left = '0';
         leftMenuRef.current.style.width = '250px';
-        productsRef.current.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
         productsRef.current.style.pointerEvents = 'none';
-        document.body.style.overflow = 'hidden';
+
+        if (window.innerWidth < 1000) {
+            productsRef.current.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+            document.body.style.overflow = 'hidden';
+        }
     }
 
     const handleCloseLeftMenu = () => {
@@ -48,13 +51,33 @@ const ProductListPage = () => {
 
     const closeMenuRef = useRef();
     const productsRef = useRef();
+    const wrapperRef = useRef();
     const leftMenuRef = useClickOutside(handleCloseLeftMenu, closeMenuRef);
+
+    useEffect(() => {
+        function hideLeftmenu () {
+            wrapperRef.current.style.height = `${window.innerHeight - 80}px`;
+
+            if (window.innerWidth < 1000) {
+                handleCloseLeftMenu();
+            } else {
+                handleOpenLeftMenu();
+                productsRef.current.style.backgroundColor = 'inherit';
+            }
+        }
+        window.addEventListener('resize', hideLeftmenu);
+
+        return () => {
+            window.removeEventListener('resize', hideLeftmenu);
+        }
+    });
 
     return (
         <div className='productlistpage'>
             <LeftMeun 
                 leftMenuRef={leftMenuRef} 
                 location={location}
+                wrapperRef={wrapperRef}
             />
             <div className='productlistpage__container'>
                 <SearchBar

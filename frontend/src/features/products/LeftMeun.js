@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState, useCallback, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-const LeftMeun = ({ leftMenuRef, location }) => {
+const LeftMeun = ({ leftMenuRef, location, wrapperRef }) => {
 
     const navigate = useNavigate();
     const { category, pagenum } = useParams();
@@ -73,7 +73,7 @@ const LeftMeun = ({ leftMenuRef, location }) => {
 
     return (
         <div ref={leftMenuRef} className='leftmenu'>
-            <div className='leftmenu__wrapper'>
+            <div ref={wrapperRef} className='leftmenu__wrapper'>
                 <div className='leftmenu__header'>
                     <h5 className='leftmenu__text leftmenu__text--title' style={{ visibility: window.innerWidth < 1000 ? 'hidden' : 'visible' }}>CATEGORIES</h5>
                 </div>

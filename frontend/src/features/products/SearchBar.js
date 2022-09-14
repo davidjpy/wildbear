@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { AiOutlineMenuUnfold } from 'react-icons/ai';
 import { HiMenu } from 'react-icons/hi';
@@ -28,34 +28,6 @@ const SearchBar = ({ leftMenuRef, handleOpenLeftMenu, handleCloseLeftMenu, searc
             handleCloseLeftMenu();
         }
     }
-
-    useEffect(() => {
-        function hideLeftmenu () {
-            if (window.innerWidth < 1000) {
-                handleCloseLeftMenu();
-                leftMenuRef.current.style.overflow = 'scroll';
-                leftMenuRef.current.style.paddingBottom = '6rem';
-            } else {
-                leftMenuRef.current.style.left = '0';
-                leftMenuRef.current.style.width = '250px';
-                leftMenuRef.current.style.overflow = 'inherit';
-                leftMenuRef.current.style.paddingBottom = '0rem';
-            }
-        }
-        window.addEventListener('resize', hideLeftmenu);
-
-        return () => {
-            window.removeEventListener('resize', hideLeftmenu);
-        }
-    });
-
-    useEffect(() => {
-        if (window.innerWidth < 1000) {
-            leftMenuRef.current.style.left = '-250px';
-            leftMenuRef.current.style.overflow = 'scroll';
-            leftMenuRef.current.style.paddingBottom = '6rem';
-        }
-    }, [leftMenuRef]);
 
     return (
         <div className='searchbar'>

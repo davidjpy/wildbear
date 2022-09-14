@@ -20,6 +20,7 @@
 .leftmenu__wrapper {
     position: sticky;
     top: 80px;
+    overflow: auto;
 }
 
 .leftmenu__header {
