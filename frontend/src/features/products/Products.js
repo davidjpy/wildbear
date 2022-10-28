@@ -66,7 +66,7 @@ const Products = ({ productsRef, location, searchParams }) => {
 
     const handlePagination = (page) => {
         if (page > 0 && page - 1 < pageProducts.length) {
-            navigate(`/products/${category}/page=${page}`);
+            navigate(`/products/${category}/page=${page}/`);
         }
     }
 
