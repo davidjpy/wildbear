@@ -61,9 +61,8 @@ const LeftMeun = ({ leftMenuRef, location, wrapperRef }) => {
 
     const handleUpdateActive = useCallback(() => {
         const targetUrl = url.substring(url.indexOf('/', 1) + 1);
-        const parent = menuOptions.find(item => item?.subTitle.find(subItem => subItem?.nav === targetUrl));
-        const target = parent?.subTitle.find(item => item?.nav === targetUrl);
-
+        const parent = menuOptions.find(item => item?.subTitle.find(subItem => subItem?.nav === (targetUrl.substring(0, targetUrl.indexOf('=') + 1) + '1/')));
+        const target = parent?.subTitle.find(item => item?.nav === (targetUrl.substring(0, targetUrl.indexOf('=') + 1) + '1/'));
         setActive(target?.header);
     }, [menuOptions, url]);
 
