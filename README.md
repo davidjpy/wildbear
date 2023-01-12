@@ -5,7 +5,8 @@
     <img src="logo.PNG" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h1 align="center">WildBear</h1>
+  <h3 align="center">WilBbear is e-commerce website designed for selling a wide variety of camping gears. This a full stack web project created with modern ReactJS & Redux pattern, and other major tech stacks.</h3>
 
   <p align="center">
     An awesome README template to jumpstart your projects!
