@@ -17,7 +17,7 @@
     <li>
       <a href="#project-overview">Project Overview</a>
       <ul>
-        <li><a href="#stacks-&-frameworks">Stacks & Frameworks</a></li>
+        <li><a href="#stacks--frameworks">Stacks & Frameworks</a></li>
       </ul>
     </li>
   </ol>
