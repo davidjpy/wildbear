@@ -3,7 +3,7 @@
    <img src="logo.PNG" alt="Logo" width="160" height="160">
 
   <h1 align="center">WildBear</h1>
-  <h4 align="center">WilBbear is e-commerce website designed for selling a wide variety of camping gears</h4>
+  <h4 align="center">:shopping_cart WilBbear is e-commerce website designed for selling a wide variety of camping gears</h4>
 
   <p align="center">
     <a href="https://www.wildbear-shop.com/">View Demo</a>
