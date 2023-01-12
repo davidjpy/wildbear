@@ -26,28 +26,33 @@
 </details>
 
 ## Project Overview
-<br />
 <div align="center">
   <img src="wildbear.PNG" alt="wildbear" width="800" height="420">
 </div>
 
 ### Major Stacks
-<br />
-<img src="https://user-images.githubusercontent.com/105224348/212034071-144f9f12-9401-4c8d-9724-410469da2637.png" alt="drawing" width="60">
-* ReactJS
+<div align="center">
+   <img src="https://user-images.githubusercontent.com/105224348/212036967-b918c968-bab2-441f-8679-2fa7594f8e94.png" alt="drawing" height="70" />
+   <img src="https://user-images.githubusercontent.com/105224348/212036713-363affef-d00c-4ad9-a5eb-b837827aa0ea.png" alt="drawing" height="70" />
+   <img src="https://user-images.githubusercontent.com/105224348/212037388-6fa92131-66b6-42d7-8e08-b3afa0d3b977.png" alt="drawing" height="70" />
+   <img src="https://user-images.githubusercontent.com/105224348/212038128-0ee6c28d-a1fc-4ea0-aae9-01df852bd6d3.svg" alt="drawing" height="70" />
+   <img src="https://user-images.githubusercontent.com/105224348/212038725-111a4ba5-3f23-42a0-8bfe-58de7aea4c6b.svg" alt="drawing" height="70" />
+ </div>
+
+* React.js
 * Django
 * Postgresql
-* Netlify - Static Site Deployment
+* Netlify - Client deployment
 * Amazon Web Services - API & Database Deployment (Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53)
 
 ### Frameworks & Libraries
-<br />
+
 * Redux Toolkit 
 * Redux Toolkit Query
 * Beautifulsoup - Data Collection
 
 ### Features
-<br />
+
 | Feature  | | Description  |
 |----------|:-------------:|:-------------|
 | Search for Product | &#10004; | Ability to Search for Products |
@@ -56,7 +61,7 @@
 | Remove Cart Product | &#10004; | Ability to Remove a Cart Product |
 
 ## Stacks & Frameworks
-<br />
+
 * ReactJS
 * Redux Toolkit & Redux Toolkit Query
 * Django
