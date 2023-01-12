@@ -17,7 +17,8 @@
     <li>
       <a href="#project-overview">Project Overview</a>
       <ul>
-        <li><a href="#stacks--frameworks">Stacks & Frameworks</a></li>
+        <li><a href="#major-stacks">Major Stacks</a></li>
+        <li><a href="#frameworks--libraries">Frameworks and Libraries</a></li>
       </ul>
     </li>
   </ol>
@@ -29,11 +30,10 @@
   <img src="wildbear.PNG" alt="wildbear" width="800" height="420">
 </div>
 
-### Stacks & Frameworks
+### Major Stacks
 
 
-
-
+### Frameworks and Libraries
 
 
 
