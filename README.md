@@ -6,7 +6,7 @@
   </a>
 
   <h1 align="center">WildBear</h1>
-  <h3 align="center">WilBbear is e-commerce website designed for selling a wide variety of camping gears. This a full stack web project created with modern ReactJS & Redux pattern, and other major tech stacks.</h3>
+  <h4 align="center">WilBbear is e-commerce website designed for selling a wide variety of camping gears</h4>
 
   <p align="center">
     An awesome README template to jumpstart your projects!
