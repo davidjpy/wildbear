@@ -24,6 +24,7 @@
 </details>
 
 ## About The Project
+<br />
 <div align="center">
   <img src="wildbear.PNG" alt="wildbear" width="1200" height="500">
 </div>
