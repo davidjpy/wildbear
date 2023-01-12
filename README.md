@@ -32,7 +32,7 @@
 </div>
 
 ### Major Stacks
-* [![React][React.js]][React-url]
+![react](https://user-images.githubusercontent.com/105224348/212034071-144f9f12-9401-4c8d-9724-410469da2637.png)
 
 ### Frameworks & Libraries
 
