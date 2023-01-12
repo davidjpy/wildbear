@@ -38,15 +38,16 @@
 * Django
 * Postgresql
 * Netlify - Static Site Deployment
-
 * Amazon Web Services - API & Database Deployment (Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53)
 
 ### Frameworks & Libraries
+<br />
 * Redux Toolkit 
 * Redux Toolkit Query
 * Beautifulsoup - Data Collection
 
 ### Features
+<br />
 | Feature  | | Description  |
 |----------|:-------------:|:-------------|
 | Search for Product | &#10004; | Ability to Search for Products |
@@ -54,9 +55,8 @@
 | Adjust Cart Products | &#10004; | Ability to Make Changes to Cart Products |
 | Remove Cart Product | &#10004; | Ability to Remove a Cart Product |
 
-
-
 ## Stacks & Frameworks
+<br />
 * ReactJS
 * Redux Toolkit & Redux Toolkit Query
 * Django
