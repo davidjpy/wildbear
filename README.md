@@ -1,9 +1,6 @@
-<!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="logo.PNG" alt="Logo" width="80" height="80">
-  </a>
+   <img src="logo.PNG" alt="Logo" width="160" height="160">
 
   <h1 align="center">WildBear</h1>
   <h4 align="center">WilBbear is e-commerce website designed for selling a wide variety of camping gears</h4>
@@ -27,8 +24,9 @@
 </details>
 
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<div align="center">
+  <img src="wildbear.PNG" alt="wildbear" width="600" height="350">
+</div>
 
 
 
