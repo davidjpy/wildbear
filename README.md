@@ -15,9 +15,9 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#project-overview">Project Overview</a>
       <ul>
-        <li><a href="#built-with">Stacks & Frameworks</a></li>
+        <li><a href="#stacks-&-frameworks">Stacks & Frameworks</a></li>
       </ul>
     </li>
   </ol>
