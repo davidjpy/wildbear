@@ -32,20 +32,21 @@
 </div>
 
 ### Major Stacks
-![react](https://user-images.githubusercontent.com/105224348/212034071-144f9f12-9401-4c8d-9724-410469da2637.png)
+<br />
+<img src="https://user-images.githubusercontent.com/105224348/212034071-144f9f12-9401-4c8d-9724-410469da2637.png" alt="drawing" width="60">
+* ReactJS
+* Django
+* Postgresql
+* Netlify - Static Site Deployment
+
+* Amazon Web Services - API & Database Deployment (Elastic Beanstalk, EC2, RDS, Load Balancers, ACM & Route 53)
 
 ### Frameworks & Libraries
-
+* Redux Toolkit 
+* Redux Toolkit Query
+* Beautifulsoup - Data Collection
 
 ### Features
-
-
-
-
-# :shopping_cart: E-commerce
-## WildBear
-WilBbear is e-commerce website designed for selling a wide variety of camping gears. This a full stack web project created with modern ReactJS & Redux pattern, and other major tech stacks.
-
 | Feature  | | Description  |
 |----------|:-------------:|:-------------|
 | Search for Product | &#10004; | Ability to Search for Products |
@@ -53,8 +54,7 @@ WilBbear is e-commerce website designed for selling a wide variety of camping ge
 | Adjust Cart Products | &#10004; | Ability to Make Changes to Cart Products |
 | Remove Cart Product | &#10004; | Ability to Remove a Cart Product |
 
-## Deployment
-The demo can be visited via https://www.wildbear-shop.com/
+
 
 ## Stacks & Frameworks
 * ReactJS
